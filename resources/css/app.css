@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.submit-button{
+    @apply text-lg mx-auto bg-gradient-to-r from-red-800 via-red-500 to-red-800 rounded-full w-full py-3 text-white;
+}
+
+.input-field{
+    @apply border border-gray-300 rounded py-4 px-6 w-full my-2 focus:outline-none;
+}
+
+.user-setting-caret{
+    @apply flex px-4 py-2 hover:bg-gray-100 hover:text-gray-900 border-b;
+}
+
+.users-caret{
+    @apply cursor-pointer w-5 h-5 ml-auto my-auto text-gray-400;
+}
+
+.users-caret-menu{
+    @apply bg-white px-10 text-gray-500;
+}
+
+.menu-bar{
+    @apply bg-gradient-to-r from-red-800 via-red-600 to-red-400 py-20 rounded-lg text-center text-white text-lg cursor-pointer;
+}
+
+.nav-front-menu{
+    @apply py-4 border-b cursor-pointer;
+}
+
+.yusuf-bg{
+    @apply bg-gradient-to-l from-red-800 via-red-600 to-red-400;
+}
+
+.stats-div{
+    @apply bg-red-800 p-4 my-5 flex items-center justify-between rounded-lg;
+}
