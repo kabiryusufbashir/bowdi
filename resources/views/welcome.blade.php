@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <title>Best Way Guaranty Cargo</title>
+        <title>Borno Women Development Initiative (BOWDI)</title>
     </head>
     <body>
         <div class="sm:w-1/3 sm:mx-auto md:my-24 p-5 bg-white rounded shadow-md">
@@ -12,7 +12,7 @@
                 @include('layouts.messages')
             </div>
             <div class="pb-3">
-                <h2 class="border-b text-center text-3xl mb-4">Best Way Guaranty Cargo</h2>
+                <h2 class="border-b text-center text-3xl mb-4">Borno Women Development Initiative</h2>
             </div>
             <div>
                 <form action="{{ route('login') }}" method="POST">
