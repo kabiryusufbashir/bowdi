@@ -6,31 +6,25 @@
         @include('layouts.messages')
     </div>
     <!-- Section  -->
-    <div id="homeBar" class="">
+    <div id="homeBar" class="grid grid-cols-3 gap-3">
+        <!-- Bar Chart  -->
+        <div class="shadow-lg col-span-2">
+            {!! $chart->container() !!}
+        </div>
         <!-- Statistics  -->
-        <div class="my-auto flex justify-between">
-            <div class="stats-div w-full mx-4">
-                <a href="{{ route('cargo') }}" class="flex items-center">
-                    <span><i class="fas fa-file-invoice"></i></span> &nbsp;&nbsp;
-                    <span class="text-white">Cargos: {{ $cargo->count() }}</span>
-                </a>
-            </div>
-            <div class="stats-div w-full mx-4">
-                <a href="{{ route('payment') }}" class="flex items-center">
-                    <span><i class="fas fa-book"></i></span> &nbsp;&nbsp;
-                    <span class="text-white">Transactions: ${{ $cargo->sum('amount') }}</span>
-                </a>
-            </div>
+        <div class="my-auto col-span-1">
             <div class="stats-div w-full mx-4">
                 <a href="{{ route('dashboard-staff') }}" class="flex items-center">
                     <span><i class="fas fa-user-circle"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Staff: {{ $staff->count() }}</span>
                 </a>
             </div>
-        </div>
-        <!-- Bar Chart  -->
-        <div class="shadow-lg">
-            {!! $chart->container() !!}
+            <div class="stats-div w-full mx-4">
+                <a href="{{ route('dashboard-staff') }}" class="flex items-center">
+                    <span><i class="fas fa-user-circle"></i></span> &nbsp;&nbsp;
+                    <span class="text-white">Department: {{ $department->count() }}</span>
+                </a>
+            </div>
         </div>
     </div>
     <!-- Trademark  -->

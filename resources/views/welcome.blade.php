@@ -12,9 +12,10 @@
                 @include('layouts.messages')
             </div>
             <div class="pb-3">
-                <h2 class="border-b text-center text-3xl mb-4">Borno Women Development Initiative</h2>
+                <img class="w-1/5 mx-auto" src="{{ asset('images/bowdi.png') }}" alt="BOWDI Logo">
+                <h2 class="border-b text-center text-xl mb-4">Borno Women Development Initiative</h2>
             </div>
-            <div>
+            <div class="px-6">
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="my-2">
@@ -37,7 +38,7 @@
                         <span><a href="#" class="hover:text-blue-600 hover:underline">Forgot your Password?</a></span>
                     </div>
                     <div class="text-center">
-                        <button class="submit-button tracking-wider">Login</button>
+                        <button class="submit-button tracking-wider">LOGIN</button>
                     </div>
                 </form>
             </div>

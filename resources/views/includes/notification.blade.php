@@ -3,6 +3,6 @@
         Welcome <b>{{ Auth::user()->name }}</b>
     </div>
     <div>
-        Best Way Guaranty Cargo
+        Borno Women Development Initiative (BOWDI)
     </div>
 </div>

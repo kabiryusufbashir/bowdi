@@ -6,24 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\User;
-use App\Models\Cargo;
+use App\Models\Staff;
 use DB;
 
-use App\Charts\WeeklyReport;
+use App\Charts\StaffStat;
 
 class DashboardController extends Controller
 {
     public function index(){
 
-        $dataset = DB::table('cargos')
-            ->select('cargos.cargo_type', \DB::raw("COUNT(cargo_type) as total"))
-            ->groupBy('cargos.cargo_type')
+        $dataset = DB::table('staff')
+            ->select('staff.gender', \DB::raw("COUNT(gender) as total"))
+            ->groupBy('staff.gender')
             ->get();
         
-        $chart = new WeeklyReport;
-        $chart->labels($dataset->pluck('cargo_type'));
-        $chart->dataset('Weekly Report', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => '#D03D56']);
+        $chart = new StaffStat;
+        $chart->labels($dataset->pluck('gender'));
+        $chart->dataset('Staff Gender', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => 'green']);
 
         return view('dashboard.index', compact('chart'));
     }

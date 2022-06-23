@@ -1,4 +1,4 @@
-<div id="nav" class="md:bg-red-800 bg-white md:py-12 h-screen md:text-white text-black w-full">
+<div id="nav" class="md:bg-green-800 bg-white md:py-12 h-screen md:text-white text-black w-full">
     <div id="homeNav" class="nav-front-menu flex justify-between px-6">
         <a class="flex justify-between w-full" href="{{ route('dashboard-admin') }}">
             <div>Home</div>
@@ -6,27 +6,17 @@
         </a>
     </div>
     <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
-        <div>New Cargo</div>
+        <div>Department</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
-    <a href="{{ route('cargo') }}">
-        <div class="nav-front-menu flex justify-between px-6">
-            <div>Cargos</div>
-            <div><i class="text-black md:text-white fas fa-book"></i></div>
-        </div>
-    </a>
-    <a href="{{ route('manifest') }}">
-        <div class="nav-front-menu flex justify-between px-6">
-            <div>Weekly Manifest</div>
-            <div><i class="text-black md:text-white fas fa-book"></i></div>
-        </div>
-    </a>
-    <a href="{{ route('payment') }}">
-        <div class="nav-front-menu flex justify-between px-6">
-            <div>Payment</div>
-            <div><i class="text-black md:text-white fas fa-file-invoice"></i></div>
-        </div>
-    </a>
+    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
+        <div>Rank</div>
+        <div><i class="text-black md:text-white fas fa-book"></i></div>
+    </div>
+    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
+        <div>Blog</div>
+        <div><i class="text-black md:text-white fas fa-book"></i></div>
+    </div>
     <div id="staffNav" class="nav-front-menu flex justify-between px-6">
         <div>New Staff</div>
         <div><i class="text-black md:text-white fas fa-user"></i></div>

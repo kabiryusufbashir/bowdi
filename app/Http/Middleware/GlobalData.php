@@ -6,11 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
-use App\Models\Program;
-use App\Models\Beneficiary;
-use App\Models\Donation;
 use App\Models\User;
-use App\Models\Cargo;
+use App\Models\Department;
 
 class GlobalData
 {
@@ -23,12 +20,12 @@ class GlobalData
      */
     public function handle(Request $request, Closure $next)
     {
-        $cargo = Cargo::all();
         $staff = User::where('status', 1)->get();
+        $department = Department::all();
 
         View::share('staff', $staff);
-        View::share('cargo', $cargo);
-
+        View::share('department', $department);
+        
         return $next($request);
     }
 }

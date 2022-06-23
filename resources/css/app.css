@@ -7,7 +7,7 @@
 }
 
 .input-field{
-    @apply border border-gray-300 rounded py-4 px-6 w-full my-2 focus:outline-none;
+    @apply border-gray-300 rounded py-4 px-6 w-full my-2 border-0 border-b focus:outline-none;
 }
 
 .user-setting-caret{
