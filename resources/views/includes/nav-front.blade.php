@@ -5,16 +5,12 @@
             <div><i class="text-black md:text-white fas fa-home"></i></div>
         </a>
     </div>
-    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
-        <div>Department</div>
+    <div id="deptNav" class="nav-front-menu flex justify-between px-6">
+        <div>New Department</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
     <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
         <div>Rank</div>
-        <div><i class="text-black md:text-white fas fa-book"></i></div>
-    </div>
-    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
-        <div>Blog</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
     <div id="staffNav" class="nav-front-menu flex justify-between px-6">
@@ -30,6 +26,10 @@
     <div id="profileNav" class="nav-front-menu flex justify-between px-6">
         <div>Profile</div>
         <div><i class="text-black md:text-white fas fa-user"></i></div>
+    </div>
+    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
+        <div>Blog</div>
+        <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
     <div class="nav-front-menu flex justify-between px-6">
         <div>Logout</div>

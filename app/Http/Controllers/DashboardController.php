@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\Staff;
+use App\Models\Department;
 use DB;
 
 use App\Charts\StaffStat;
@@ -27,110 +28,58 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('chart'));
     }
 
-    //Cargo
-    public function addcargo(Request $request){
+    //Dept
+    public function addDept(Request $request){
         $data = $request->validate([
-            'cargo_type' => ['required'],
-            'cust_name' => ['required'],
-            'cust_phone' => ['required'],
-            'quantity' => ['required'],
-            'good_type' => ['required'],
-            'weight' => ['required'],
-            'rate' => ['required'],
-            'ship_details' => ['required'],
-            'date' => ['required'],
+            'name' => ['required'],
         ]);
 
-        $date = $data['date'];
-        $weight = floatval($data['weight']);
-        $rate = floatval($data['rate']);
-        $amount = $weight * $rate;
-        $timestamp = strtotime($data['date']) + date('His');
-        
         try{
-            Cargo::create([
-                'cargo_type' => $data['cargo_type'],
-                'cust_name' => $data['cust_name'],
-                'cust_phone' => $data['cust_phone'],
-                'quantity' => $data['quantity'],
-                'good_type' => $data['good_type'],
-                'weight' => $data['weight'],
-                'rate' => $data['rate'],
-                'amount' => $amount,
-                'day' => date('d', strtotime($date)),
-                'month' => date('m', strtotime($date)),
-                'year' => date('Y', strtotime($date)),
-                'ship_details' => $data['ship_details'],
-                'timestamp' => $timestamp
+            Department::create([
+                'name' => $data['name'],
             ]);
 
-            return redirect()->route('dashboard-admin')->with('success', 'Cargo Stored'); 
+            return redirect()->route('dashboard-admin')->with('success', $data['name'].' deptment added'); 
             
         }catch(Expection $e){
             return back()->with(['error' => 'Please try again later! ('.$e.')']);
         }
     }
 
-    //cargo
-    public function cargo(){
-        $cargo = Cargo::orderby('created_at', 'desc')->paginate(50);
-        return view('dashboard.cargo', compact('cargo'));
+    //dept
+    public function dept(){
+        $dept = Department::orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.dept', compact('dept'));
     }
 
-    //Delete cargo
-    public function deletecargo($id){
-        $cargo = Cargo::findOrFail($id);
+    //Delete dept
+    public function deletedept($id){
+        $dept = Department::findOrFail($id);
         try{
-            $cargo->delete();
-            return redirect()->route('cargo')->with('success', 'Cargo Deleted');
+            $dept->delete();
+            return redirect()->route('dept')->with('success', 'Department Deleted');
         }catch(Exception $e){
-            return redirect()->route('cargo')->with('error', 'Please try again... '.$e);
+            return redirect()->route('dept')->with('error', 'Please try again... '.$e);
         }
     }
 
-    //Edit cargo
-    public function editcargo($id){
-        $cargo = Cargo::findOrFail($id);
-        return view('dashboard.edit.cargo', compact('cargo'));
+    //Edit dept
+    public function editdept($id){
+        $dept = Department::findOrFail($id);
+        return view('dashboard.edit.dept', compact('dept'));
     }
 
-    //Update cargo
-    public function updatecargo(Request $request, $id){
+    //Update dept
+    public function updatedept(Request $request, $id){
         $data = $request->validate([
-            'cargo_type' => ['required'],
-            'cust_name' => ['required'],
-            'cust_phone' => ['required'],
-            'quantity' => ['required'],
-            'good_type' => ['required'],
-            'weight' => ['required'],
-            'rate' => ['required'],
-            'ship_details' => ['required'],
-            'date' => ['required'],
+            'name' => ['required']
         ]);
 
-        $date = $data['date'];
-        $weight = floatval($data['weight']);
-        $rate = floatval($data['rate']);
-        $amount = $weight * $rate;
-        $timestamp = strtotime($data['date']) + date('His');
-
         try{
-            $cargo = Cargo::where('id', $id)->update([
-                'cargo_type' => $data['cargo_type'],
-                'cust_name' => $data['cust_name'],
-                'cust_phone' => $data['cust_phone'],
-                'quantity' => $data['quantity'],
-                'good_type' => $data['good_type'],
-                'weight' => $data['weight'],
-                'rate' => $data['rate'],
-                'amount' => $amount,
-                'day' => date('d', strtotime($date)),
-                'month' => date('m', strtotime($date)),
-                'year' => date('Y', strtotime($date)),
-                'ship_details' => $data['ship_details'],
-                'timestamp' => $timestamp
+            $dept = Department::where('id', $id)->update([
+                'name' => $data['name'],
             ]);
-            return redirect()->route('cargo')->with('success', 'Cargo Updated');
+            return redirect()->route('dept')->with('success', 'Department Updated');
         }catch(Exception $e){
             return back()->with('error', 'Please try again... '.$e);
         }
@@ -139,8 +88,8 @@ class DashboardController extends Controller
     //payment
     public function payment(){
         
-        $months = Cargo::select('month')->orderby('month', 'asc')->distinct()->get();
-        $years = Cargo::select('year')->orderby('year', 'asc')->distinct()->get();
+        $months = dept::select('month')->orderby('month', 'asc')->distinct()->get();
+        $years = dept::select('year')->orderby('year', 'asc')->distinct()->get();
 
         return view('dashboard.payment', compact('months', 'years'));
     
@@ -156,7 +105,7 @@ class DashboardController extends Controller
         $month = $data['month'];
         $year = $data['year'];
 
-        $payment = Cargo::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
+        $payment = dept::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
 
         return view('dashboard.viewpayment', compact('payment', 'month', 'year'));
         
@@ -165,8 +114,8 @@ class DashboardController extends Controller
     //Manifest
     public function manifest(){
         
-        $months = Cargo::select('month')->orderby('month', 'asc')->distinct()->get();
-        $years = Cargo::select('year')->orderby('year', 'asc')->distinct()->get();
+        $months = dept::select('month')->orderby('month', 'asc')->distinct()->get();
+        $years = dept::select('year')->orderby('year', 'asc')->distinct()->get();
 
         return view('dashboard.manifest', compact('months', 'years'));
     
@@ -182,7 +131,7 @@ class DashboardController extends Controller
         $month = $data['month'];
         $year = $data['year'];
 
-        $manifest = Cargo::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
+        $manifest = dept::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
 
         return view('dashboard.viewmanifest', compact('manifest', 'month', 'year'));
         

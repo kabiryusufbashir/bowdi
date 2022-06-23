@@ -20,8 +20,8 @@
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
-                <a href="{{ route('dashboard-staff') }}" class="flex items-center">
-                    <span><i class="fas fa-user-circle"></i></span> &nbsp;&nbsp;
+                <a href="{{ route('dept') }}" class="flex items-center">
+                    <span><i class="fas fa-book"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Department: {{ $department->count() }}</span>
                 </a>
             </div>

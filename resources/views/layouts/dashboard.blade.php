@@ -16,7 +16,7 @@
         @yield('container')
     </div>
     <!-- Cargo  -->
-    @include('includes.cargo-front')
+    @include('includes.dept-front')
     <!-- Staff  -->
     @include('includes.staff-front')
     <!-- Profile -->

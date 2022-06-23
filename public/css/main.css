@@ -16,7 +16,7 @@
     color: white;
 }
 
-#cargo, #staff, #profile{
+#dept, #staff, #profile{
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 300;
@@ -27,20 +27,20 @@
     overflow: auto;
 }
 
-#cargo-header, #staff-header, #profile-header{
+#dept-header, #staff-header, #profile-header{
     height: 65px;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
 }
 
-#cargo-content, #staff-content, #profile-content{
-    margin: 2% 2%;
-    width: 96%;
+#dept-content, #staff-content, #profile-content{
+    margin: 4% auto;
+    width: 50%;
     background: #FFFFFF;
 }
 
-#addCargoForm{
+#adddeptForm{
     max-height: 600px;
     overflow: auto;
 }

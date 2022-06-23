@@ -28,17 +28,17 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard-admin')->middleware('auth:web');
 
         //Create Module
-        Route::post('/addcargo', [DashboardController::class, 'addcargo'])->name('add-cargo')->middleware('auth:web');
+        Route::post('/adddept', [DashboardController::class, 'addDept'])->name('add-dept')->middleware('auth:web');
         Route::post('/addDonation', [DashboardController::class, 'addDonation'])->name('add-donation')->middleware('auth:web');
         Route::post('/addBeneficary', [DashboardController::class, 'addBeneficiary'])->name('add-beneficiary')->middleware('auth:web');
         Route::post('/addStaff', [DashboardController::class, 'addStaff'])->name('add-staff')->middleware('auth:web');
         Route::patch('/editprofile', [DashboardController::class, 'editProfile'])->name('edit-profile')->middleware('auth:web');
 
-        //Cargo
-        Route::get('/cargo', [DashboardController::class, 'cargo'])->name('cargo')->middleware('auth:web');
-        Route::get('/cargo/{cargo}/edit', [DashboardController::class, 'editcargo'])->name('cargo-edit')->middleware('auth:web');
-        Route::patch('/cargo/{cargo}/update', [DashboardController::class, 'updatecargo'])->name('cargo-update')->middleware('auth:web');
-        Route::delete('/cargo/{cargo}', [DashboardController::class, 'deletecargo'])->name('cargo-delete')->middleware('auth:web');
+        //dept
+        Route::get('/dept', [DashboardController::class, 'dept'])->name('dept')->middleware('auth:web');
+        Route::get('/dept/{dept}/edit', [DashboardController::class, 'editdept'])->name('dept-edit')->middleware('auth:web');
+        Route::patch('/dept/{dept}/update', [DashboardController::class, 'updatedept'])->name('dept-update')->middleware('auth:web');
+        Route::delete('/dept/{dept}', [DashboardController::class, 'deletedept'])->name('dept-delete')->middleware('auth:web');
         
         //Payment
         Route::get('/payment', [DashboardController::class, 'payment'])->name('payment')->middleware('auth:web');

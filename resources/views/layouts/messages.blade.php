@@ -7,7 +7,7 @@
 @endif
 
 @if(session('success'))
-    <div class="text-blue-600 py-2 px-4 text-center">
+    <div class="text-green-600 py-2 px-4 text-center">
         <h4>{{session('success')}}</h4>
 	</div>
 @endif
