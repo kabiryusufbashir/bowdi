@@ -16,7 +16,7 @@
     color: white;
 }
 
-#dept, #staff, #profile{
+#dept, #rank, #staff, #profile{
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 300;
@@ -27,22 +27,17 @@
     overflow: auto;
 }
 
-#dept-header, #staff-header, #profile-header{
+#dept-header, #rank-header, #staff-header, #profile-header{
     height: 65px;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
 }
 
-#dept-content, #staff-content, #profile-content{
+#dept-content, #rank-content, #staff-content, #profile-content{
     margin: 4% auto;
     width: 50%;
     background: #FFFFFF;
-}
-
-#adddeptForm{
-    max-height: 600px;
-    overflow: auto;
 }
 
 table{

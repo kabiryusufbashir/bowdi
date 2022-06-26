@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-use App\Models\Staff;
 use App\Models\Department;
+use App\Models\Rank;
+use App\Models\Staff;
 use DB;
 
 use App\Charts\StaffStat;
@@ -28,7 +29,7 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('chart'));
     }
 
-    //Dept
+    //Add Dept
     public function addDept(Request $request){
         $data = $request->validate([
             'name' => ['required'],
@@ -46,13 +47,13 @@ class DashboardController extends Controller
         }
     }
 
-    //dept
+    //Dept All
     public function dept(){
         $dept = Department::orderby('created_at', 'desc')->paginate(50);
         return view('dashboard.dept', compact('dept'));
     }
 
-    //Delete dept
+    //Delete Dept
     public function deletedept($id){
         $dept = Department::findOrFail($id);
         try{
@@ -85,56 +86,61 @@ class DashboardController extends Controller
         }
     }
 
-    //payment
-    public function payment(){
-        
-        $months = dept::select('month')->orderby('month', 'asc')->distinct()->get();
-        $years = dept::select('year')->orderby('year', 'asc')->distinct()->get();
-
-        return view('dashboard.payment', compact('months', 'years'));
-    
-    }
-
-    public function viewpayment(Request $request){
-        
+    //Add Rank
+    public function addrank(Request $request){
         $data = $request->validate([
-            'month' => ['required'],
-            'year' => ['required'],
+            'name' => ['required'],
         ]);
 
-        $month = $data['month'];
-        $year = $data['year'];
+        try{
+            Rank::create([
+                'name' => $data['name'],
+            ]);
 
-        $payment = dept::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
-
-        return view('dashboard.viewpayment', compact('payment', 'month', 'year'));
-        
+            return redirect()->route('dashboard-admin')->with('success', $data['name'].' rank added'); 
+            
+        }catch(Expection $e){
+            return back()->with(['error' => 'Please try again later! ('.$e.')']);
+        }
     }
 
-    //Manifest
-    public function manifest(){
-        
-        $months = dept::select('month')->orderby('month', 'asc')->distinct()->get();
-        $years = dept::select('year')->orderby('year', 'asc')->distinct()->get();
-
-        return view('dashboard.manifest', compact('months', 'years'));
-    
+    //Rank All
+    public function rank(){
+        $rank = Rank::orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.rank', compact('rank'));
     }
 
-    public function viewmanifest(Request $request){
-        
+    //Delete Rank
+    public function deleterank($id){
+        $rank = Rank::findOrFail($id);
+        try{
+            $rank->delete();
+            return redirect()->route('rank')->with('success', 'Rank Deleted');
+        }catch(Exception $e){
+            return redirect()->route('rank')->with('error', 'Please try again... '.$e);
+        }
+    }
+
+    //Edit Rank
+    public function editrank($id){
+        $rank = Rank::findOrFail($id);
+        return view('dashboard.edit.rank', compact('rank'));
+    }
+
+    //Update Rank
+    public function updaterank(Request $request, $id){
         $data = $request->validate([
-            'month' => ['required'],
-            'year' => ['required'],
+            'name' => ['required']
         ]);
 
-        $month = $data['month'];
-        $year = $data['year'];
-
-        $manifest = dept::where('month', $month)->where('year', $year)->orderby('day', 'asc')->paginate(100);
-
-        return view('dashboard.viewmanifest', compact('manifest', 'month', 'year'));
-        
+        try{
+            $rank = Rank::where('id', $id)->update([
+                'name' => $data['name'],
+            ]);
+            return redirect()->route('rank')->with('success', 'Rank Updated');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
     }
     
     //Staff

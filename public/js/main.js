@@ -26,6 +26,25 @@ let closeModalDept = document.querySelector('#closeModalDept')
     closeModalDept.addEventListener('click', ()=>{
         dept.classList.add('hidden')
     })
+//end of dept
+
+//rank Module
+let rankNav = document.querySelector('#rankNav')
+let rank = document.querySelector('#rank')
+let addRankForm = document.querySelector('#addRankForm')
+let closeModalRank = document.querySelector('#closeModalRank')
+
+    // Rank Navigation 
+    rankNav.addEventListener('click', ()=>{
+        rank.classList.remove('hidden')
+        addRankForm.classList.remove('hidden')
+    })
+
+    // Close Modal 
+    closeModalRank.addEventListener('click', ()=>{
+        rank.classList.add('hidden')
+    })
+//end of dept
 
 //Staff Module
 let staffNav = document.querySelector('#staffNav')

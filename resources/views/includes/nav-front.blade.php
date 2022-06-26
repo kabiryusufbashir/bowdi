@@ -9,8 +9,12 @@
         <div>New Department</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
-    <div id="cargoNav" class="nav-front-menu flex justify-between px-6">
+    <div id="rankNav" class="nav-front-menu flex justify-between px-6">
         <div>Rank</div>
+        <div><i class="text-black md:text-white fas fa-book"></i></div>
+    </div>
+    <div id="docNav" class="nav-front-menu flex justify-between px-6">
+        <div>Documents</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
     <div id="staffNav" class="nav-front-menu flex justify-between px-6">

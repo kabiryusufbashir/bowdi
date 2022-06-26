@@ -18,8 +18,10 @@
             @include('includes.menu-front')
         </div>
     </div>
-    <!-- Cargo  -->
+    <!-- Dept  -->
     @include('includes.dept-front')
+    <!-- Rank  -->
+    @include('includes.rank-front')
     <!-- Staff  -->
     @include('includes.staff-front')
     <!-- Profile -->
