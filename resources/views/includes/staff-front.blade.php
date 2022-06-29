@@ -1,6 +1,6 @@
 <div id="staff" class="hidden">
     <div id="staff-content">
-        <div id="staff-header" class="bg-red-800 text-white p-4 flex justify-between">
+        <div id="staff-header" class="bg-green-800 text-white p-4 flex justify-between">
             <span>New Staff</span>
             <span id="closeModalStaff" class="cursor-pointer">X</span>
         </div>
@@ -9,52 +9,304 @@
             <div id="addStaffForm" class="hidden">
                 <form action="{{route('add-staff')}}" method="POST" class="px-6 lg:px-8 py-8">
                     @csrf
-                    <div>
-                        <label for="name" class="text-lg font-medium">Staff Name</label><br>
-                        <input type="text" name="name" value="{{old('name')}}" placeholder="Staff Name" class="input-field">
-                        @error('name')
-                            {{$message}}
-                        @enderror
+                    <!-- Employees Details -->
+                    <div id="employeeDetails" class="block">
+                        <h1 class="font-bold">Employees Details</h1>
+                        <div class="lg:grid grid-cols-4 gap-4">
+                            <div>
+                                <input type="text" name="title" value="{{old('title')}}" placeholder="Title" class="input-field">
+                                @error('title')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="text" name="e_code" value="{{old('e_code')}}" placeholder="E Code" class="input-field">
+                                    @error('e_code')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="other_name" value="{{old('other_name')}}" placeholder="Other Name" class="input-field">
+                                    @error('other_name')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="lga" value="{{old('lga')}}" placeholder="LGA" class="input-field">
+                                    @error('lga')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="text" name="first_name" value="{{old('first_name')}}" placeholder="First Name" class="input-field">
+                                    @error('first_name')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="date" name="dob" value="{{old('dob')}}" placeholder="Date of Birth" class="input-field">
+                                    @error('dob')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="state" value="{{old('state')}}" placeholder="State" class="input-field">
+                                    @error('state')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="text" name="last_name" value="{{old('last_name')}}" placeholder="Last Name" class="input-field">
+                                    @error('last_name')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="place_of_birth" value="{{old('place_of_birth')}}" placeholder="Place Of Birth" class="input-field">
+                                    @error('place_of_birth')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="nationality" value="{{old('nationality')}}" placeholder="Nationality" class="input-field">
+                                    @error('nationality')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-4 gap-4">
+                            <div>
+                                <input type="text" name="marital_status" value="{{old('marital_status')}}" placeholder="Marital Status" class="input-field">
+                                @error('marital_status')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="blood_group" value="{{old('blood_group')}}" placeholder="Blood Group" class="input-field">
+                                @error('blood_group')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="next_of_kin" value="{{old('next_of_kin')}}" placeholder="Next of Kin" class="input-field">
+                                @error('next_of_kin')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="tax_id_no" value="{{old('tax_id_no')}}" placeholder="Tax Identification No" class="input-field">
+                                @error('tax_id_no')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-4 gap-4">
+                            <div class="col-span-3">
+                                <div>
+                                    <h1 class="text-sm"><b>FULLY VACCINATED FOR COVID-19</b>(If not vaccinated PCR info required)</h1>
+                                </div>
+                            </div>
+                            <div class="col-span-1 flex justify-between items-center">
+                                <span>Yes</span>
+                                <input value="yes" type="checkbox" name="vaccinated_yes" id="vaccinated_yes">
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-4 gap-4 items-center">
+                            <div class="col-span-3 flex justify-between">
+                                <div>
+                                    <input type="text" name="vaccination_type" value="{{old('vaccination_type')}}" placeholder="Vaccination Type" class="input-field">
+                                    @error('vaccination_type')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="text" name="date_of_vaccination" value="{{old('date_of_vaccination')}}" placeholder="Date Of Vaccination" class="input-field">
+                                    @error('date_of_vaccination')
+                                        {{$message}}
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-span-1 flex justify-between items-center">
+                                <span>No</span>
+                                <input value="no" type="checkbox" name="vaccinated_no" id="vaccinated_no">
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <div id="nextEmployeeContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
+                        </div> 
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <!-- Contact Details  -->
+                    <div id="employeeContactDetails" class="hidden">
+                        <h1 class="font-bold">Contact Details</h1>
                         <div>
-                            <label for="email" class="text-lg font-medium">Staff Email</label><br>
-                            <input type="email" name="email" value="{{old('email')}}" placeholder="Staff Email" class="input-field">
-                            @error('email')
+                            <input type="text" name="residential_address" value="{{old('residential_address')}}" placeholder="Residential Address" class="input-field">
+                            @error('residential_address')
                                 {{$message}}
                             @enderror
                         </div>
                         <div>
-                            <label for="username" class="text-lg font-medium">Staff Username</label><br>
-                            <input type="text" name="username" value="{{old('username')}}" placeholder="Staff Username" class="input-field">
-                            @error('username')
+                            <input type="text" name="permanent_address" value="{{old('permanent_address')}}" placeholder="Permanent Address" class="input-field">
+                            @error('permanent_address')
                                 {{$message}}
                             @enderror
                         </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label for="type" class="text-lg font-medium">Account Type</label><br>
-                            <select required name="type" value="{{old('type')}}" class="input-field">
-                                <option value=""></option>
-                                <option value="1">Super User</option>
-                                <option value="2">Normal User</option>
-                            </select>
-                            @error('type')
-                                {{$message}}
-                            @enderror
+                        <div class="lg:grid grid-cols-3 gap-4">
+                            <div>
+                                <input type="text" name="permanent_city" value="{{old('permanent_city')}}" placeholder="City" class="input-field">
+                                @error('permanent_city')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="permanent_state" value="{{old('permanent_state')}}" placeholder="State" class="input-field">
+                                @error('permanent_state')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="permanent_country" value="{{old('permanent_country')}}" placeholder="Country" class="input-field">
+                                @error('permanent_country')
+                                    {{$message}}
+                                @enderror
+                            </div>
                         </div>
-                        <div>
-                            <label for="password" class="text-lg font-medium">Staff Password</label><br>
-                            <input type="password" name="password" value="{{old('password')}}" placeholder="Staff Password" class="input-field">
-                            @error('password')
-                                {{$message}}
-                            @enderror
+                        <div class="lg:grid grid-cols-2 gap-4">
+                            <div>
+                                <input type="email" name="personal_email" value="{{old('personal_email')}}" placeholder="Personal Email" class="input-field">
+                                @error('personal_email')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="mobile_no" value="{{old('mobile_no')}}" placeholder="Mobile No" class="input-field">
+                                @error('mobile_no')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="text-center mt-6 flex justify-between items-center">
+                            <div id="prevEmployeeDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Previous</div>
+                            <div id="nextEmployeeEmergencyContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
                         </div>
                     </div>
-                    <div class="text-center mt-6">
-                        <button class="submit-button">Add Staff</button>
-                    </div>
+                    <!-- Emergency Contact Details  -->
+                    <div id="employeeEmergencyContactDetails" class="hidden">
+                        <h1 class="font-bold">Emergency Contact Details</h1>
+                        <div class="lg:grid grid-cols-5 gap-4">
+                            <div>
+                                <h1>S/N</h1>
+                            </div>
+                            <div>
+                                <h1>Name</h1>
+                            </div>
+                            <div>
+                                <h1>Relationship</h1>
+                            </div>
+                            <div>
+                                <h1>Contact No</h1>
+                            </div>
+                            <div>
+                                <h1>Address</h1>
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-5 gap-4 items-center">
+                            <div>
+                                <h1>1</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_name_1" value="{{old('emergency_contact_name_1')}}" placeholder="Name" class="input-field">
+                                @error('emergency_contact_name_1')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_relationship_1" value="{{old('emergency_contact_relationship_1')}}" placeholder="Relationship" class="input-field">
+                                @error('emergency_contact_relationship_1')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_no_1" value="{{old('emergency_contact_no_1')}}" placeholder="Contact No" class="input-field">
+                                @error('emergency_contact_no_1')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_address_1" value="{{old('emergency_contact_address_1')}}" placeholder="Address" class="input-field">
+                                @error('emergency_contact_address_1')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-5 gap-4 items-center">
+                            <div>
+                                <h1>2</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_name_2" value="{{old('emergency_contact_name_2')}}" placeholder="Name" class="input-field">
+                                @error('emergency_contact_name_2')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_relationship_2" value="{{old('emergency_contact_relationship_2')}}" placeholder="Relationship" class="input-field">
+                                @error('emergency_contact_relationship_2')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_no_2" value="{{old('emergency_contact_no_2')}}" placeholder="Contact No" class="input-field">
+                                @error('emergency_contact_no_2')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_address_2" value="{{old('emergency_contact_address_2')}}" placeholder="Address" class="input-field">
+                                @error('emergency_contact_address_2')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-5 gap-4 items-center">
+                            <div>
+                                <h1>3</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_name_3" value="{{old('emergency_contact_name_3')}}" placeholder="Name" class="input-field">
+                                @error('emergency_contact_name_3')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_relationship_3" value="{{old('emergency_contact_relationship_3')}}" placeholder="Relationship" class="input-field">
+                                @error('emergency_contact_relationship_3')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_no_3" value="{{old('emergency_contact_no_3')}}" placeholder="Contact No" class="input-field">
+                                @error('emergency_contact_no_3')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="emergency_contact_address_3" value="{{old('emergency_contact_address_3')}}" placeholder="Address" class="input-field">
+                                @error('emergency_contact_address_3')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="text-center mt-6 flex justify-between items-center">
+                            <div id="prevContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Previous</div>
+                            <div id="nextEmployeeBanksDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
+                        </div>
+                    </div>                    
                 </form>
             </div>
         </div>

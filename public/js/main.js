@@ -49,6 +49,14 @@ let closeModalRank = document.querySelector('#closeModalRank')
 //Staff Module
 let staffNav = document.querySelector('#staffNav')
 let staff = document.querySelector('#staff')
+let employeeDetails = document.querySelector('#employeeDetails')
+let nextEmployeeContactDetails = document.querySelector('#nextEmployeeContactDetails')
+let employeeContactDetails = document.querySelector('#employeeContactDetails')
+let prevEmployeeDetails = document.querySelector('#prevEmployeeDetails')
+let nextEmployeeEmergencyContactDetails = document.querySelector('#nextEmployeeEmergencyContactDetails')
+let employeeEmergencyContactDetails = document.querySelector('#employeeEmergencyContactDetails')
+let prevContactDetails = document.querySelector('#prevContactDetails')
+let nextEmployeeBanksDetails = document.querySelector('#nextEmployeeBanksDetails')
 let addStaffForm = document.querySelector('#addStaffForm')
 let closeModalStaff = document.querySelector('#closeModalStaff')
 
@@ -56,6 +64,27 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     staffNav.addEventListener('click', ()=>{
         staff.classList.remove('hidden')
         addStaffForm.classList.remove('hidden')
+    })
+
+    //Next Staff Contact Details
+    nextEmployeeContactDetails.addEventListener('click', ()=>{
+        employeeDetails.classList.remove('block')
+        employeeDetails.classList.add('hidden')
+        employeeContactDetails.classList.remove('hidden')
+        employeeContactDetails.classList.add('block')
+    })
+
+    //Pre Staff Details
+    prevEmployeeDetails.addEventListener('click', ()=>{
+        employeeContactDetails.classList.add('hidden')
+        employeeDetails.classList.remove('hidden')
+    })
+
+    //Next Staff Emergency Contact
+    nextEmployeeEmergencyContactDetails.addEventListener('click', ()=>{
+        employeeDetails.classList.add('hidden')
+        employeeContactDetails.classList.add('hidden')
+        employeeEmergencyContactDetails.classList.remove('hidden')
     })
 
     // Close Modal 

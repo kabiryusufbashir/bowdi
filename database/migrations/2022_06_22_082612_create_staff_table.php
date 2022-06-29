@@ -25,6 +25,7 @@ class CreateStaffTable extends Migration
             $table->string('other_name')->nullable;
             $table->string('dob')->nullable;
             $table->string('place_of_birth')->nullable;
+            $table->string('photo')->nullable;
             $table->string('lga')->nullable;
             $table->string('state')->nullable;
             $table->string('nationality')->nullable;
@@ -32,6 +33,8 @@ class CreateStaffTable extends Migration
             $table->string('blood_group')->nullable;
             $table->string('next_of_kin')->nullable;
             $table->string('tax_id_no')->nullable;
+            $table->string('vaccinated_yes')->nullable;
+            $table->string('vaccinated_no')->nullable;
             $table->string('vaccination_type')->nullable;
             $table->string('date_of_vaccination')->nullable;
             $table->string('residential_address')->nullable;

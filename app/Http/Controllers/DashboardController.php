@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use App\Models\User;
 use App\Models\Department;
 use App\Models\Rank;
 use App\Models\Staff;
@@ -160,7 +161,8 @@ class DashboardController extends Controller
         $type = $data['type'];
 
         try{
-            User::create([
+
+            $staff = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'username' => $data['username'],
@@ -169,7 +171,11 @@ class DashboardController extends Controller
                 'status' => 1
             ]);
 
-            return redirect()->route('dashboard-admin')->with('success', $name.' Added'); 
+            $staff_id = $staff->id;
+
+            dd($staff_id);
+
+            // return redirect()->route('dashboard-admin')->with('success', $name.' Added'); 
             
         }catch(Expection $e){
             return back()->with(['error' => 'Please try again later! ('.$e.')']);
