@@ -57,6 +57,8 @@ let nextEmployeeEmergencyContactDetails = document.querySelector('#nextEmployeeE
 let employeeEmergencyContactDetails = document.querySelector('#employeeEmergencyContactDetails')
 let prevContactDetails = document.querySelector('#prevContactDetails')
 let nextEmployeeBanksDetails = document.querySelector('#nextEmployeeBanksDetails')
+let employeeBankDetails = document.querySelector('#employeeBankDetails')
+let prevEmergencyContactDetails = document.querySelector('#prevEmergencyContactDetails')
 let addStaffForm = document.querySelector('#addStaffForm')
 let closeModalStaff = document.querySelector('#closeModalStaff')
 
@@ -77,6 +79,7 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     //Pre Staff Details
     prevEmployeeDetails.addEventListener('click', ()=>{
         employeeContactDetails.classList.add('hidden')
+        employeeEmergencyContactDetails.classList.add('hidden')
         employeeDetails.classList.remove('hidden')
     })
 
@@ -84,6 +87,27 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     nextEmployeeEmergencyContactDetails.addEventListener('click', ()=>{
         employeeDetails.classList.add('hidden')
         employeeContactDetails.classList.add('hidden')
+        employeeEmergencyContactDetails.classList.remove('hidden')
+    })
+
+    // pre Contact details 
+    prevContactDetails.addEventListener('click', ()=>{
+        employeeEmergencyContactDetails.classList.add('hidden')
+        employeeDetails.classList.add('hidden')
+        employeeContactDetails.classList.remove('hidden')
+    })
+
+    // Next Bank details 
+    nextEmployeeBanksDetails.addEventListener('click', ()=>{
+        employeeEmergencyContactDetails.classList.add('hidden')
+        employeeDetails.classList.add('hidden')
+        employeeContactDetails.classList.add('hidden')
+        employeeBankDetails.classList.remove('hidden')
+    })
+
+    // Prev Emergency Contact Info 
+    prevEmergencyContactDetails.addEventListener('click', ()=>{
+        employeeBankDetails.classList.add('hidden')
         employeeEmergencyContactDetails.classList.remove('hidden')
     })
 

@@ -11,7 +11,7 @@
                     @csrf
                     <!-- Employees Details -->
                     <div id="employeeDetails" class="block">
-                        <h1 class="font-bold">Employees Details</h1>
+                        <h1 class="font-bold mb-2">Employees Details</h1>
                         <div class="lg:grid grid-cols-4 gap-4">
                             <div>
                                 <input type="text" name="title" value="{{old('title')}}" placeholder="Title" class="input-field">
@@ -41,7 +41,7 @@
                             </div>
                             <div>
                                 <div>
-                                    <input type="text" name="first_name" value="{{old('first_name')}}" placeholder="First Name" class="input-field">
+                                    <input type="text" name="first_name" value="{{old('first_name')}}" placeholder="First Name *" class="input-field">
                                     @error('first_name')
                                         {{$message}}
                                     @enderror
@@ -61,7 +61,7 @@
                             </div>
                             <div>
                                 <div>
-                                    <input type="text" name="last_name" value="{{old('last_name')}}" placeholder="Last Name" class="input-field">
+                                    <input type="text" name="last_name" value="{{old('last_name')}}" placeholder="Last Name *" class="input-field">
                                     @error('last_name')
                                         {{$message}}
                                     @enderror
@@ -137,13 +137,13 @@
                                 <input value="no" type="checkbox" name="vaccinated_no" id="vaccinated_no">
                             </div>
                         </div>
-                        <div class="text-center mt-6">
-                            <div id="nextEmployeeContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
+                        <div class="text-center my-6 float-right">
+                            <div id="nextEmployeeContactDetails" class="cursor-pointer">Contact Details -></div>
                         </div> 
                     </div>
                     <!-- Contact Details  -->
                     <div id="employeeContactDetails" class="hidden">
-                        <h1 class="font-bold">Contact Details</h1>
+                        <h1 class="font-bold mb-2">Contact Details</h1>
                         <div>
                             <input type="text" name="residential_address" value="{{old('residential_address')}}" placeholder="Residential Address" class="input-field">
                             @error('residential_address')
@@ -191,13 +191,13 @@
                             </div>
                         </div>
                         <div class="text-center mt-6 flex justify-between items-center">
-                            <div id="prevEmployeeDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Previous</div>
-                            <div id="nextEmployeeEmergencyContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
+                            <div id="prevEmployeeDetails" class="cursor-pointer"><- Employee Details</div>
+                            <div id="nextEmployeeEmergencyContactDetails" class="cursor-pointer">Emergency Contact Details -></div>
                         </div>
                     </div>
                     <!-- Emergency Contact Details  -->
                     <div id="employeeEmergencyContactDetails" class="hidden">
-                        <h1 class="font-bold">Emergency Contact Details</h1>
+                        <h1 class="font-bold mb-2">Emergency Contact Details</h1>
                         <div class="lg:grid grid-cols-5 gap-4">
                             <div>
                                 <h1>S/N</h1>
@@ -303,10 +303,48 @@
                             </div>
                         </div>
                         <div class="text-center mt-6 flex justify-between items-center">
-                            <div id="prevContactDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Previous</div>
-                            <div id="nextEmployeeBanksDetails" class="cursor-pointer bg-green-800 rounded p-3 lg:w-1/4 text-white mx-auto">Next</div>
+                            <div id="prevContactDetails" class="cursor-pointer"><- Contact Details</div>
+                            <div id="nextEmployeeBanksDetails" class="cursor-pointer">Bank Details -></div>
                         </div>
-                    </div>                    
+                    </div> 
+                    <!-- Bank Details -->
+                    <div id="employeeBankDetails" class="hidden">
+                        <h1 class="font-bold mb-2">Bank Details</h1>
+                        <div class="lg:grid grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" name="account_name" value="{{old('account_name')}}" placeholder="Account Name" class="input-field">
+                                @error('account_name')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="account_no" value="{{old('account_no')}}" placeholder="Account Number" class="input-field">
+                                @error('account_no')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="lg:grid grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" name="bank_name" value="{{old('bank_name')}}" placeholder="Bank Name" class="input-field">
+                                @error('bank_name')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                            <div>
+                                <input type="text" name="bank_branch" value="{{old('bank_branch')}}" placeholder="Bank Branch" class="input-field">
+                                @error('bank_branch')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="submit-button">Add Staff</button>
+                        </div>
+                        <div class="text-center mt-6 flex justify-between items-center">
+                            <div id="prevEmergencyContactDetails" class="cursor-pointer"><- Emergency Contact Details</div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
