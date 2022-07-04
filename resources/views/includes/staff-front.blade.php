@@ -178,7 +178,7 @@
                         </div>
                         <div class="lg:grid grid-cols-2 gap-4">
                             <div>
-                                <input type="email" name="personal_email" value="{{old('personal_email')}}" placeholder="Personal Email" class="input-field">
+                                <input type="email" name="personal_email" value="{{old('personal_email')}}" placeholder="Personal Email *" class="input-field">
                                 @error('personal_email')
                                     {{$message}}
                                 @enderror
@@ -338,11 +338,52 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="text-center mt-6 flex justify-between items-center">
+                            <div id="prevEmergencyContactDetails" class="cursor-pointer"><- Emergency Contact Details</div>
+                            <div id="nextOfficialDetails" class="cursor-pointer">Official Details -></div>
+                        </div>
+                    </div>
+                    <!-- Offical Details  -->
+                    <div id="officialDetails" class="hidden">
+                        <h1 class="font-bold mb-2">Offical Details</h1>
+                        <div>
+                            <select name="rank_id" class="input-field">
+                                <option value="">Select Rank</option>
+                                @foreach($rank as $level)
+                                    <option value="{{ $level->id }}">{{ $level->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('rank_id')
+                                {{$message}}
+                            @enderror
+                        </div>
+                        <div>
+                            <select name="department_id" class="input-field">
+                                <option value="">Select Department</option>
+                                @foreach($department as $dept)
+                                    <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('department_id')
+                                {{$message}}
+                            @enderror
+                        </div>
+                        <div>
+                            <select name="supervisor_id" class="input-field">
+                                <option value="">Select Supervisor</option>
+                                @foreach($staff as $worker)
+                                    <option value="{{ $worker->id }}">{{ $worker->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('supervisor_id')
+                                {{$message}}
+                            @enderror
+                        </div>
                         <div class="text-center mt-4">
                             <button class="submit-button">Add Staff</button>
                         </div>
                         <div class="text-center mt-6 flex justify-between items-center">
-                            <div id="prevEmergencyContactDetails" class="cursor-pointer"><- Emergency Contact Details</div>
+                            <div id="prevBankDetails" class="cursor-pointer"><- Bank Details</div>
                         </div>
                     </div>
                 </form>

@@ -13,6 +13,7 @@ class Staff extends Model
         'user_id',
         'rank_id',
         'department_id',
+        'supervisor_id',
         'title',
         'e_code',
         'first_name',

@@ -18,6 +18,7 @@ class CreateStaffTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('rank_id');
             $table->unsignedBigInteger('department_id');
+            $table->string('supervisor_id');
             $table->string('title')->nullable;
             $table->string('e_code')->nullable;
             $table->string('first_name')->nullable;

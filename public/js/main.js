@@ -59,6 +59,9 @@ let prevContactDetails = document.querySelector('#prevContactDetails')
 let nextEmployeeBanksDetails = document.querySelector('#nextEmployeeBanksDetails')
 let employeeBankDetails = document.querySelector('#employeeBankDetails')
 let prevEmergencyContactDetails = document.querySelector('#prevEmergencyContactDetails')
+let nextOfficialDetails = document.querySelector('#nextOfficialDetails')
+let officialDetails = document.querySelector('#officialDetails')
+let prevBankDetails = document.querySelector('#prevBankDetails')
 let addStaffForm = document.querySelector('#addStaffForm')
 let closeModalStaff = document.querySelector('#closeModalStaff')
 
@@ -109,6 +112,21 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     prevEmergencyContactDetails.addEventListener('click', ()=>{
         employeeBankDetails.classList.add('hidden')
         employeeEmergencyContactDetails.classList.remove('hidden')
+    })
+
+    //Offical Details
+    nextOfficialDetails.addEventListener('click', ()=>{
+        employeeDetails.classList.add('hidden')
+        employeeEmergencyContactDetails.classList.add('hidden')
+        employeeContactDetails.classList.add('hidden')
+        employeeBankDetails.classList.add('hidden')
+        officialDetails.classList.remove('hidden')
+    })
+
+    // Prev Bank Details 
+    prevBankDetails.addEventListener('click', ()=>{
+        officialDetails.classList.add('hidden')
+        employeeBankDetails.classList.remove('hidden')
     })
 
     // Close Modal 
