@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+use App\Models\Department;
+use App\Models\Rank;
+
 class Staff extends Model
 {
     use HasFactory;
@@ -56,4 +60,17 @@ class Staff extends Model
         'bank_name',
         'bank_branch',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function rank(){
+        return $this->belongsTo(Rank::class);
+    }
+
 }

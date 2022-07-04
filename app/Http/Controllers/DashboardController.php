@@ -235,8 +235,8 @@ class DashboardController extends Controller
     
     //Staff
     public function staff(){
-        $staff = User::orderby('created_at', 'desc')->where('status', 1)->paginate(10);
-        $staff->toJson();
+        $staff = Staff::orderby('created_at', 'desc')->paginate(10);
+        // $staff->toJson();
         return view('dashboard.staff', compact('staff'));
     }
 
