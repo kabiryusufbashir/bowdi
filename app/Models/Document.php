@@ -9,8 +9,9 @@ class Document extends Model
 {
     protected $fillable = [
         'name',
-        'category',
-        'upload_by',
-        'date'
+        'path',
+        'user_id',
+        'date',
+        'status'
     ];
 }

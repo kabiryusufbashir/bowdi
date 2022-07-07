@@ -15,14 +15,8 @@
     <div class="md:grid grid-cols-12 gap-2">
         @yield('container')
     </div>
-    <!-- Department  -->
-    @include('includes.dept-front')
-    <!-- Rank  -->
-    @include('includes.rank-front')
-    <!-- Staff  -->
-    @include('includes.staff-front')
-    <!-- Profile -->
-    @include('includes.profile-front')
+    <!-- Modules  -->
+    @include('includes.modules')
 
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ mix('/js/app.js') }}"></script>  

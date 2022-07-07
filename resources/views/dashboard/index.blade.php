@@ -18,14 +18,9 @@
             @include('includes.menu-front')
         </div>
     </div>
-    <!-- Dept  -->
-    @include('includes.dept-front')
-    <!-- Rank  -->
-    @include('includes.rank-front')
-    <!-- Staff  -->
-    @include('includes.staff-front')
-    <!-- Profile -->
-    @include('includes.profile-front')
+    
+    <!-- Modules  -->
+    @include('includes.modules')
 
     {!! $chart->script() !!}
     <script src="{{ asset('js/main.js') }}"></script>

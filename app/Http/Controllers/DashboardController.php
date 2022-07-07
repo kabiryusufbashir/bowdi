@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Department;
 use App\Models\Rank;
 use App\Models\Staff;
+use App\Models\Document;
 use DB;
 
 use App\Charts\StaffStat;
@@ -367,6 +368,80 @@ class DashboardController extends Controller
             }else{
                 return back()->with('error', 'Please Check Your Password and Try Again');
             }
+        }
+    }
+
+    //Add Document
+    public function addDoc(Request $request){
+        $data = $request->validate([
+            'name' => ['required'],
+            'path' => ['required', 'mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
+            'date' => ['required'],
+        ]);
+
+        if($file = $request->file('path')){
+            $path = time().str_replace(' ', '', $file->getClientOriginalName());
+            $file->move('assets/documents/', $path);
+            
+            if($data['path'] != null){
+                if(file_exists(public_path().'/assets/documents/'.$data['path'])){
+                    unlink(public_path().'/assets/documents/'.$data['path']);
+                }
+            }
+        }
+
+        try{
+            Document::create([
+                'name' => $data['name'],
+                'path' => $path,
+                'date' => $data['date'],
+                'status' => 1,
+                'user_id' => Auth::user()->id,
+            ]);
+
+            return redirect()->route('dashboard-admin')->with('success', $data['name'].' uploaded successfully'); 
+            
+        }catch(Expection $e){
+            return back()->with(['error' => 'Please try again later! ('.$e.')']);
+        }
+    }
+
+    //Doc All
+    public function doc(){
+        $doc = Document::orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.doc', compact('doc'));
+    }
+
+    //Delete Rank
+    public function deletedoc($id){
+        $doc = Document::findOrFail($id);
+        try{
+            $doc->delete();
+            return redirect()->route('doc')->with('success', 'Document Deleted');
+        }catch(Exception $e){
+            return redirect()->route('doc')->with('error', 'Please try again... '.$e);
+        }
+    }
+
+    //Edit Rank
+    public function editdoc($id){
+        $doc = Document::findOrFail($id);
+        return view('dashboard.edit.doc', compact('doc'));
+    }
+
+    //Update Rank
+    public function updatedoc(Request $request, $id){
+        $data = $request->validate([
+            'name' => ['required']
+        ]);
+
+        try{
+            $doc = Document::where('id', $id)->update([
+                'name' => $data['name'],
+            ]);
+            return redirect()->route('doc')->with('success', 'Document Updated');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
         }
     }
 

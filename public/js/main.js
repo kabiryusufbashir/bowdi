@@ -65,7 +65,7 @@ let closeModalRank = document.querySelector('#closeModalRank')
     closeModalRank.addEventListener('click', ()=>{
         rank.classList.add('hidden')
     })
-//end of dept
+//end of rank
 
 //Staff Module
 let staffNav = document.querySelector('#staffNav')
@@ -168,6 +168,9 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
 let docNav = document.querySelector('#docNav')
 let docBody = document.querySelector('#docBody')
 let newDoc = document.querySelector('#newDoc')
+let doc = document.querySelector('#doc')
+let addDocForm = document.querySelector('#addDocForm')
+let closeModalDoc = document.querySelector('#closeModalDoc')
     
     //Document Nav
     docNav.addEventListener('click', ()=>{
@@ -177,6 +180,19 @@ let newDoc = document.querySelector('#newDoc')
             docBody.classList.add('hidden')
         }
     })
+
+    //new rank 
+    newDoc.addEventListener('click', ()=>{
+        doc.classList.remove('hidden')
+        addDocForm.classList.remove('hidden')
+    })
+
+    // Close Modal 
+    closeModalDoc.addEventListener('click', ()=>{
+        doc.classList.add('hidden')
+    })
+    
+//End of Document
 
 //Profile Module
 let profileNav = document.querySelector('#profileNav')
