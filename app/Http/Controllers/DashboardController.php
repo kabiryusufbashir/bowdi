@@ -393,6 +393,7 @@ class DashboardController extends Controller
         try{
             Document::create([
                 'name' => $data['name'],
+                'description' => $data['description'],
                 'path' => $path,
                 'date' => $data['date'],
                 'status' => 1,
@@ -408,36 +409,64 @@ class DashboardController extends Controller
 
     //Doc All
     public function doc(){
-        $doc = Document::orderby('created_at', 'desc')->paginate(50);
+        $doc = Document::where('status', 1)->orderby('created_at', 'desc')->paginate(50);
         return view('dashboard.doc', compact('doc'));
     }
 
-    //Delete Rank
+    //Delete Document
     public function deletedoc($id){
-        $doc = Document::findOrFail($id);
+        
         try{
-            $doc->delete();
+            $doc = Document::where('id', $id)->update(['status'=> 0]);
             return redirect()->route('doc')->with('success', 'Document Deleted');
         }catch(Exception $e){
             return redirect()->route('doc')->with('error', 'Please try again... '.$e);
         }
+
     }
 
-    //Edit Rank
+    //Edit Document
     public function editdoc($id){
         $doc = Document::findOrFail($id);
         return view('dashboard.edit.doc', compact('doc'));
     }
 
-    //Update Rank
+    //Update Document
     public function updatedoc(Request $request, $id){
-        $data = $request->validate([
-            'name' => ['required']
-        ]);
+        
+        if($request->path != null){
+            $data = $request->validate([
+                'name' => ['required'],
+                'path' => ['mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
+                'date' => ['required'],
+            ]);
+            
+            if($file = $request->file('path')){
+                $path = time().str_replace(' ', '', $file->getClientOriginalName());
+                $file->move('assets/documents/', $path);
+                
+                if($data['path'] != null){
+                    if(file_exists(public_path().'/assets/documents/'.$data['path'])){
+                        unlink(public_path().'/assets/documents/'.$data['path']);
+                    }
+                }
+            }
+
+        }else{
+            $data = $request->validate([
+                'name' => ['required'],
+                'date' => ['required'],
+            ]);
+
+            $path = $request->old_path;
+        }
 
         try{
             $doc = Document::where('id', $id)->update([
-                'name' => $data['name'],
+                'name' => $request->name,
+                'description' => $request->description,
+                'path' => $path,
+                'date' => $request->date
             ]);
             return redirect()->route('doc')->with('success', 'Document Updated');
         }catch(Exception $e){

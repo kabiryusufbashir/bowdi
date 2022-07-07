@@ -10,9 +10,16 @@
                 <form action="{{ route('add-doc') }}" method="POST" class="px-6 lg:px-8 py-8" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <label for="name" class="text-lg font-medium">Document Name</label><br>
+                        <label for="name" class="text-lg font-medium">Name</label><br>
                         <input type="text" name="name" value="{{old('name')}}" placeholder="Document Name" class="input-field">
                         @error('name')
+                            {{$message}}
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="description" class="text-lg font-medium">Description</label><br>
+                        <input type="text" name="description" value="{{old('description')}}" placeholder="Document Name" class="input-field">
+                        @error('description')
                             {{$message}}
                         @enderror
                     </div>

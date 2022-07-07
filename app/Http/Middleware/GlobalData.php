@@ -26,7 +26,7 @@ class GlobalData
         $supervisor = User::where('status', 1)->get();
         $staff = Staff::all();
         $department = Department::all();
-        $document = Document::all();
+        $document = Document::where('status', 1)->get();
         $rank = Rank::all();
 
         View::share('supervisor', $supervisor);
