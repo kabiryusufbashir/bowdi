@@ -247,14 +247,60 @@ class DashboardController extends Controller
 
     public function updatestaff(Request $request, $id){
         $data = $request->validate([
-            'name' => ['required'],
-            'email' => ['required'],
-            'username' => ['required'],
-            'type' => ['required'],
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'personal_email' => ['required'],
         ]);
 
         try{
-            $staff = User::where('id', $id)->update($data);
+            $staff = Staff::where('id', $id)->update([
+                'rank_id' => $request->rank_id,
+                'department_id' => $request->department_id,
+                'supervisor_id' => $request->supervisor_id,
+                'title' => $request->title,
+                'e_code' => $request->e_code,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'other_name' => $request->other_name,
+                'dob' => $request->dob,
+                'gender' => $request->gender,
+                'place_of_birth' => $request->place_of_birth,
+                'photo' => $request->photo,
+                'lga' => $request->lga,
+                'state' => $request->state,
+                'nationality' => $request->nationality,
+                'marital_status' => $request->marital_status,
+                'blood_group' => $request->blood_group,
+                'next_of_kin' => $request->next_of_kin,
+                'tax_id_no' => $request->tax_id_no,
+                'vaccinated_yes' => $request->vaccinated_yes,
+                'vaccinated_no' => $request->vaccinated_no,
+                'vaccination_type' => $request->vaccination_type,
+                'date_of_vaccination' => $request->vaccination_type,
+                'residential_address' => $request->residential_address,
+                'permanent_address' => $request->permanent_address,
+                'permanent_address_city' => $request->permanent_address_city,
+                'permanent_address_state' => $request->permanent_address_state,
+                'permanent_address_country' => $request->permanent_address_country,
+                'personal_email' => $request->personal_email,
+                'mobile_no' => $request->mobile_no,
+                'emergency_contact_name_1' => $request->emergency_contact_name_1,
+                'emergency_contact_relationship_1' => $request->emergency_contact_relationship_1,
+                'emergency_contact_contact_no_1' => $request->emergency_contact_contact_no_1,
+                'emergency_contact_address_1' => $request->emergency_contact_address_1,
+                'emergency_contact_name_2' => $request->emergency_contact_name_2,
+                'emergency_contact_relationship_2' => $request->emergency_contact_relationship_2,
+                'emergency_contact_contact_no_2' => $request->emergency_contact_contact_no_2,
+                'emergency_contact_address_2' => $request->emergency_contact_address_2,
+                'emergency_contact_name_3' => $request->emergency_contact_name_3,
+                'emergency_contact_relationship_3' => $request->emergency_contact_relationship_3,
+                'emergency_contact_contact_no_3' => $request->emergency_contact_contact_no_3,
+                'emergency_contact_address_3' => $request->emergency_contact_address_3,
+                'account_name' => $request->account_name,
+                'account_no' => $request->account_no,
+                'bank_name' => $request->bank_name,
+                'bank_branch' => $request->bank_branch,
+            ]);
             return redirect()->route('dashboard-staff')->with('success', 'Staff Updated');
         }catch(Exception $e){
             return back()->with('error', 'Please try again... '.$e);
@@ -263,13 +309,14 @@ class DashboardController extends Controller
 
     public function deletestaff($id)
     {
-        $staff = User::findOrFail($id);
+        $staff_user_id = Staff::where('id', $id)->pluck('user_id')->first();
         
         try{
-            $staff = User::where('id', $id)->update([
+            $staff = User::where('id', $staff_user_id)->update([
                 'status'=> 0
             ]);
             return back()->with('success', 'Staff deleted');
+
         }catch(Exception $e){
             return back()->with('error', 'Please try again... '.$e);
         }
