@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\User;
 use App\Models\Department;
 use App\Models\Rank;
+use App\Models\Staff;
 
 class GlobalData
 {
@@ -21,10 +22,12 @@ class GlobalData
      */
     public function handle(Request $request, Closure $next)
     {
-        $staff = User::where('status', 1)->get();
+        $supervisor = User::where('status', 1)->get();
+        $staff = Staff::all();
         $department = Department::all();
         $rank = Rank::all();
 
+        View::share('supervisor', $supervisor);
         View::share('staff', $staff);
         View::share('department', $department);
         View::share('rank', $rank);

@@ -371,7 +371,7 @@
                         <div>
                             <select name="supervisor_id" class="input-field">
                                 <option value="">Select Supervisor</option>
-                                @foreach($staff as $worker)
+                                @foreach($supervisor as $worker)
                                     <option value="{{ $worker->id }}">{{ $worker->name }}</option>
                                 @endforeach
                             </select>

@@ -30,8 +30,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         //Create Module
         Route::post('/adddept', [DashboardController::class, 'addDept'])->name('add-dept')->middleware('auth:web');
         Route::post('/addrank', [DashboardController::class, 'addRank'])->name('add-rank')->middleware('auth:web');
-        Route::post('/addDonation', [DashboardController::class, 'addDonation'])->name('add-donation')->middleware('auth:web');
-        Route::post('/addBeneficary', [DashboardController::class, 'addBeneficiary'])->name('add-beneficiary')->middleware('auth:web');
         Route::post('/addStaff', [DashboardController::class, 'addStaff'])->name('add-staff')->middleware('auth:web');
         Route::patch('/editprofile', [DashboardController::class, 'editProfile'])->name('edit-profile')->middleware('auth:web');
 
@@ -47,14 +45,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::patch('/rank/{rank}/update', [DashboardController::class, 'updaterank'])->name('rank-update')->middleware('auth:web');
         Route::delete('/rank/{rank}', [DashboardController::class, 'deleterank'])->name('rank-delete')->middleware('auth:web');
         
-        //Payment
-        Route::get('/payment', [DashboardController::class, 'payment'])->name('payment')->middleware('auth:web');
-        Route::post('/viewpayment', [DashboardController::class, 'viewpayment'])->name('view-payment')->middleware('auth:web');
-
-        //Manifest
-        Route::get('/manifest', [DashboardController::class, 'manifest'])->name('manifest')->middleware('auth:web');
-        Route::post('/viewmanifest', [DashboardController::class, 'viewmanifest'])->name('view-manifest')->middleware('auth:web');
-
         //Staff Section
         Route::get('/staff', [DashboardController::class, 'staff'])->name('dashboard-staff')->middleware('auth:web');
         Route::get('/staff/{staff}/edit', [DashboardController::class, 'editstaff'])->name('staff-edit')->middleware('auth:web');

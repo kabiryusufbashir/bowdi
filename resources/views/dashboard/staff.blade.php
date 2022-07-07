@@ -15,24 +15,24 @@
         <!-- Section  -->
         <div id="homeBar" class="">
             @if(count($staff) > 0)
-                <div class="text-center text-2xl border-b">
+                <div class="text-center text-2xl border-b border-green-600">
                     Borno Women Development Initiative (BOWDI) <br> Staff
                 </div>
                 <div class="my-2 p-3">
-                    @foreach($staff as $worker)
-                        <div class="lg:grid grid-cols-4 gap-4">
+                    <div class="lg:grid grid-cols-4 gap-4">
+                        @foreach($staff as $worker)
                             <div class="p-3 shadow text-center">
                                 <div>
-                                    <img class="mx-auto" style="width:200px; 200px;" src="{{ ($worker->photo != null) ? asset('images/staff/'.$worker->photo) : asset('images/bowdi.png')  }}" alt="{{ $worker->first_name }}">
+                                    <img class="mx-auto" style="width:200px; 200px;" src="{{ ($worker->photo != null) ? asset('images/staff/'.$worker->photo) : asset('images/bowdi.png')  }}" alt="{{ $worker->name }}">
                                 </div>
                                 <div class="font-normal">
-                                    {{ $worker->first_name }} {{ $worker->last_name }} {{ $worker->other_name }}
+                                    {{ $worker->name }}
                                 </div>
                                 <div class="font-bold">
-                                    {{ $worker->rank['name'] }}
+                                    {{ App\Models\Rank::where('id', $worker->rank_id)->pluck('name')->first() }}
                                 </div>
                                 <div>
-                                    {{ $worker->department['name'] }}
+                                    {{ App\Models\Department::where('id', $worker->department_id)->pluck('name')->first() }}
                                 </div>
                                 <div class="flex justify-center">
                                     @if(Auth::user()->type == 1)
@@ -61,8 +61,8 @@
                                     @endif
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             @else
                 <div class="text-center text-2xl">

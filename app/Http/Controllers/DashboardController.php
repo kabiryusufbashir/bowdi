@@ -235,13 +235,23 @@ class DashboardController extends Controller
     
     //Staff
     public function staff(){
-        $staff = Staff::orderby('created_at', 'desc')->paginate(10);
-        // $staff->toJson();
+        $users = User::where('status', 1)->get();
+        $staff = DB::table('staff')
+                ->join('users', 'staff.user_id','=','users.id')
+                ->select(
+                    ['users.name AS name',
+                    'staff.id AS id', 'staff.rank_id AS rank_id', 'staff.department_id AS department_id', 'staff.photo AS photo'
+                ])
+                ->where('users.status','=',1)
+                ->orderBy('staff.created_at', 'desc')
+                ->paginate(10);
+        // dd($staff);
+        // $staff = Staff::orderby('created_at', 'desc')->paginate(10);
         return view('dashboard.staff', compact('staff'));
     }
 
     public function editstaff($staff){
-        $staff = User::findOrFail($staff);
+        $staff = Staff::findOrFail($staff);
         return view('dashboard.edit.staff', compact('staff'));
     }
 
