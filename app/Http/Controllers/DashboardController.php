@@ -19,13 +19,13 @@ class DashboardController extends Controller
     public function index(){
 
         $dataset = DB::table('staff')
-            ->select('staff.gender', \DB::raw("COUNT(gender) as total"))
-            ->groupBy('staff.gender')
+            ->select('staff.state', \DB::raw("COUNT(state) as total"))
+            ->groupBy('staff.state')
             ->get();
         
         $chart = new StaffStat;
-        $chart->labels($dataset->pluck('gender'));
-        $chart->dataset('Staff Gender', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => 'green']);
+        $chart->labels($dataset->pluck('state'));
+        $chart->dataset('BOWDI Staff State Chart', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => 'green']);
 
         return view('dashboard.index', compact('chart'));
     }
@@ -245,8 +245,6 @@ class DashboardController extends Controller
                 ->where('users.status','=',1)
                 ->orderBy('staff.created_at', 'desc')
                 ->paginate(10);
-        // dd($staff);
-        // $staff = Staff::orderby('created_at', 'desc')->paginate(10);
         return view('dashboard.staff', compact('staff'));
     }
 

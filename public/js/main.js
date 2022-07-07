@@ -12,12 +12,22 @@ menu.addEventListener('click', ()=>{
 
 //dept Module
 let deptNav = document.querySelector('#deptNav')
+let deptBody = document.querySelector('#deptBody')
+let newDept = document.querySelector('#newDept')
 let dept = document.querySelector('#dept')
 let addDeptForm = document.querySelector('#addDeptForm')
 let closeModalDept = document.querySelector('#closeModalDept')
-
-    // dept Navigation 
+    
+    // Dept Nav 
     deptNav.addEventListener('click', ()=>{
+        if(deptBody.classList.contains('hidden')){
+            deptBody.classList.remove('hidden')
+        }else{
+            deptBody.classList.add('hidden')
+        }
+    })
+    // new dept 
+    newDept.addEventListener('click', ()=>{
         dept.classList.remove('hidden')
         addDeptForm.classList.remove('hidden')
     })
@@ -30,12 +40,23 @@ let closeModalDept = document.querySelector('#closeModalDept')
 
 //rank Module
 let rankNav = document.querySelector('#rankNav')
+let rankBody = document.querySelector('#rankBody')
+let newRank = document.querySelector('#newRank')
 let rank = document.querySelector('#rank')
 let addRankForm = document.querySelector('#addRankForm')
 let closeModalRank = document.querySelector('#closeModalRank')
 
-    // Rank Navigation 
+    // Rank Navigation
     rankNav.addEventListener('click', ()=>{
+        if(rankBody.classList.contains('hidden')){
+            rankBody.classList.remove('hidden')
+        }else{
+            rankBody.classList.add('hidden')
+        }
+    })
+
+    //new rank 
+    newRank.addEventListener('click', ()=>{
         rank.classList.remove('hidden')
         addRankForm.classList.remove('hidden')
     })
@@ -48,6 +69,7 @@ let closeModalRank = document.querySelector('#closeModalRank')
 
 //Staff Module
 let staffNav = document.querySelector('#staffNav')
+let newStaff = document.querySelector('#newStaff')
 let staff = document.querySelector('#staff')
 let employeeDetails = document.querySelector('#employeeDetails')
 let nextEmployeeContactDetails = document.querySelector('#nextEmployeeContactDetails')
@@ -65,8 +87,16 @@ let prevBankDetails = document.querySelector('#prevBankDetails')
 let addStaffForm = document.querySelector('#addStaffForm')
 let closeModalStaff = document.querySelector('#closeModalStaff')
 
-    // Staff Navigation 
+    //Staff Nav
     staffNav.addEventListener('click', ()=>{
+        if(staffBody.classList.contains('hidden')){
+            staffBody.classList.remove('hidden')
+        }else{
+            staffBody.classList.add('hidden')
+        }
+    })
+
+    newStaff.addEventListener('click', ()=>{
         staff.classList.remove('hidden')
         addStaffForm.classList.remove('hidden')
     })
@@ -132,6 +162,20 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     // Close Modal 
     closeModalStaff.addEventListener('click', ()=>{
         staff.classList.add('hidden')
+    })
+
+// Document Module 
+let docNav = document.querySelector('#docNav')
+let docBody = document.querySelector('#docBody')
+let newDoc = document.querySelector('#newDoc')
+    
+    //Document Nav
+    docNav.addEventListener('click', ()=>{
+        if(docBody.classList.contains('hidden')){
+            docBody.classList.remove('hidden')
+        }else{
+            docBody.classList.add('hidden')
+        }
     })
 
 //Profile Module
