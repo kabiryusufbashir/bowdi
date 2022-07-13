@@ -72,10 +72,21 @@
     </div>
     <!-- End of Document  -->
 
+    <!-- Blog  -->
     <div id="blogNav" class="nav-front-menu flex justify-between px-6">
         <div>Blog</div>
         <div><i class="text-black md:text-white fas fa-book"></i></div>
     </div>
+    <div id="blogBody" class="hidden bg-green-700">
+        <div id="newBlog" class="nav-front-menu flex justify-between px-6">
+            <div>New Post</div>
+        </div>
+        <div id="allBlog" class="nav-front-menu flex justify-between px-6">
+            <div>All Blog Posts</div>
+        </div>
+    </div>
+    <!-- End of Blog  -->
+
     <div id="profileNav" class="nav-front-menu flex justify-between px-6">
         <div>Change Password</div>
         <div><i class="text-black md:text-white fas fa-user"></i></div>

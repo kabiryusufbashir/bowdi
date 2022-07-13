@@ -181,7 +181,7 @@ let closeModalDoc = document.querySelector('#closeModalDoc')
         }
     })
 
-    //new rank 
+    //New Document 
     newDoc.addEventListener('click', ()=>{
         doc.classList.remove('hidden')
         addDocForm.classList.remove('hidden')
@@ -193,6 +193,36 @@ let closeModalDoc = document.querySelector('#closeModalDoc')
     })
     
 //End of Document
+
+// Document Module 
+let blogNav = document.querySelector('#blogNav')
+let blogBody = document.querySelector('#blogBody')
+let newBlog = document.querySelector('#newBlog')
+let blog = document.querySelector('#blog')
+let addBlogForm = document.querySelector('#addBlogForm')
+let closeModalBlog = document.querySelector('#closeModalBlog')
+    
+    //Blog Nav
+    blogNav.addEventListener('click', ()=>{
+        if(blogBody.classList.contains('hidden')){
+            blogBody.classList.remove('hidden')
+        }else{
+            blogBody.classList.add('hidden')
+        }
+    })
+
+    //New Blog 
+    newBlog.addEventListener('click', ()=>{
+        blog.classList.remove('hidden')
+        addBlogForm.classList.remove('hidden')
+    })
+
+    // Close Modal 
+    closeModalBlog.addEventListener('click', ()=>{
+        blog.classList.add('hidden')
+    })
+    
+//End of Blog
 
 //Profile Module
 let profileNav = document.querySelector('#profileNav')

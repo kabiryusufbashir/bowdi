@@ -474,4 +474,133 @@ class DashboardController extends Controller
         }
     }
 
+    public function blog()
+    {
+        $blogs = Blog::orderby('id','desc')->paginate(9);
+        return view('dashboard.blog', ['blogs'=>$blogs]);
+    }
+
+    public function uploadImage(Request $request)
+    {
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+            $request->file('upload')->move('images/blogs', $fileName);
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            
+            $url = '/images/blogs/'.$fileName; 
+            
+            $msg = 'Image successfully uploaded'; 
+            
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+               
+            @header('Content-type: text/html; charset=utf-8'); 
+            echo $response;
+        }
+    }
+
+    public function addblog(Request $request)
+    {
+        $data = request()->validate([
+            'title'=> 'required',
+            'author'=> 'required',
+            'photo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'content'=> 'required',
+            'category'=> 'required',
+            'status'=> 'required',
+        ]);
+
+        $imageName = '/images/blogs/'.time().'.'.$request->photo->extension();  
+        
+        try{
+            Blog::create(
+                [
+                'title'=>$request->title,
+                'author'=>$request->author,
+                'photo'=>$imageName,
+                'content'=>$request->content,
+                'category'=>$request->category,
+                'status'=>$request->status
+                ]);
+                
+                $request->photo->move('images/blogs', $imageName);
+                
+                return redirect()->route('blog');
+            }catch(Exception $e){
+                return redirect('/')->with('error', $e->getMessage());    
+            }
+    }
+
+    public function blogshow($id){
+        $blog = Blog::findOrFail($id);
+        return view('dashboard.blogshow', ['blog'=>$blog]);
+    }
+    
+    public function editblog($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $blogStatus = $blog->status;
+        
+        return view('dashboard.edit.blog', ['blog'=>$blog]);
+    }
+    
+    public function updateblog(Request $request, $id)
+    {
+        if($request->photo !== null){
+
+            $imageName = '/images/blogs/'.time().'.'.$request->photo->extension();  
+            
+            $data = request()->validate([
+                'title'=> 'required',
+                'content'=> 'required',
+                'category'=> 'required',
+                'status'=> 'required',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+            
+            try{
+                $blog = Blog::where('id', $id)->update([
+                    'title'=> $request->title,
+                    'content'=> $request->content,
+                    'category'=> $request->category,
+                    'status'=> $request->status,
+                    'photo'=> $imageName
+                    ]);
+                    
+                $request->photo->move('images/blogs', $imageName);
+                return redirect()->route('blog')->with('success', 'Blog Updated');
+            }catch(Exception $e){
+                return back()->with('error', 'Please try again... '.$e);
+            }
+        }else{
+            $data = request()->validate([
+                'title'=> 'required',
+                'status'=> 'required',
+                'content'=> 'required',
+                'category'=> 'required'
+            ]);
+            
+            try{
+                $blog = Blog::where('id', $id)->update($data);
+                return redirect()->route('blog')->with('success', 'Blog Updated');
+            }catch(Exception $e){
+                return back()->with('error', 'Please try again... '.$e);
+            }
+        }
+    }
+
+    public function deleteblog($id)
+    {
+        $blog = Blog::findOrFail($id);
+        
+        try{
+            $blog->delete();
+            return back()->with('success', 'Blog deleted');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    }
+
 }

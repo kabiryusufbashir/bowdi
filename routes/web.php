@@ -31,6 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::post('/adddept', [DashboardController::class, 'addDept'])->name('add-dept')->middleware('auth:web');
         Route::post('/addrank', [DashboardController::class, 'addRank'])->name('add-rank')->middleware('auth:web');
         Route::post('/addDoc', [DashboardController::class, 'addDoc'])->name('add-doc')->middleware('auth:web');
+        Route::post('/addBlog', [DashboardController::class, 'addBlog'])->name('add-blog')->middleware('auth:web');
         Route::post('/addStaff', [DashboardController::class, 'addStaff'])->name('add-staff')->middleware('auth:web');
         Route::patch('/editprofile', [DashboardController::class, 'editProfile'])->name('edit-profile')->middleware('auth:web');
 
@@ -51,6 +52,14 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/doc/{doc}/edit', [DashboardController::class, 'editdoc'])->name('doc-edit')->middleware('auth:web');
         Route::patch('/doc/{doc}/update', [DashboardController::class, 'updatedoc'])->name('doc-update')->middleware('auth:web');
         Route::delete('/doc/{doc}', [DashboardController::class, 'deletedoc'])->name('doc-delete')->middleware('auth:web');
+
+        //Blog
+        Route::get('/blog', [DashboardController::class, 'blog'])->name('blog')->middleware('auth:web');
+        Route::post('ckeditor/upload', [DashboardController::class, 'uploadImage'])->name('ckeditor.image-upload')->middleware('auth:web');
+        Route::get('/blog/{blog}/edit', [DashboardController::class, 'editblog'])->name('blog-edit')->middleware('auth:web');
+        Route::get('/blog/{blog}', [DashboardController::class, 'blogshow'])->name('blog-show')->middleware('auth:web');
+        Route::patch('/blog/{blog}/update', [DashboardController::class, 'updateblog'])->name('blog-update')->middleware('auth:web');
+        Route::delete('/blog/{blog}', [DashboardController::class, 'deleteblog'])->name('blog-delete')->middleware('auth:web');
         
         //Staff Section
         Route::get('/staff', [DashboardController::class, 'staff'])->name('dashboard-staff')->middleware('auth:web');
