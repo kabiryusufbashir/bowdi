@@ -61,6 +61,7 @@ class CreateStaffTable extends Migration
             $table->string('account_no')->nullable;
             $table->string('bank_name')->nullable;
             $table->string('bank_branch')->nullable;
+            $table->string('state_of_primary_assignment')->nullable;
             $table->timestamps();
 
             $table->index('user_id');

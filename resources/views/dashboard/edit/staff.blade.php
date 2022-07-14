@@ -14,7 +14,7 @@
         </div>
         <!-- Section  -->
         <div class="md:w-2/3 w-full mx-auto shadow-lg">
-            <form action="{{ route('staff-update', $staff->id) }}" method="POST" class="px-6 lg:px-8 py-8">
+            <form action="{{ route('staff-update', $staff->id) }}" method="POST" class="px-6 lg:px-8 py-8" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <!-- Employees Details -->
@@ -152,6 +152,13 @@
                 <!-- Contact Details  -->
                 <div id="employeeContactDetails" class="hidden">
                     <h1 class="font-bold mb-2">Contact Details</h1>
+                    <div>
+                        <label for="photo">Change Photo</label>
+                        <input type="file" name="photo" value="{{old('photo')}}" placeholder="Upload Photo" class="input-field">
+                        @error('photo')
+                            {{$message}}
+                        @enderror
+                    </div>
                     <div>
                         <input type="text" name="residential_address" value="{{$staff->residential_address}}" placeholder="Residential Address" class="input-field">
                         @error('residential_address')
@@ -384,6 +391,12 @@
                             @endforeach
                         </select>
                         @error('supervisor_id')
+                            {{$message}}
+                        @enderror
+                    </div>
+                    <div>
+                        <input type="text" name="state_of_primary_assignment" value="{{ $staff->state_of_primary_assignment }}" placeholder="State of Primary Assignment" class="input-field">
+                        @error('state_of_primary_assignment')
                             {{$message}}
                         @enderror
                     </div>

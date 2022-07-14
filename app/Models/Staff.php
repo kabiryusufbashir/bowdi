@@ -59,6 +59,7 @@ class Staff extends Model
         'account_no',
         'bank_name',
         'bank_branch',
+        'state_of_primary_assignment',
     ];
 
     public function user(){

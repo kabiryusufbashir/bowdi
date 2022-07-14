@@ -21,13 +21,13 @@ class DashboardController extends Controller
     public function index(){
 
         $dataset = DB::table('staff')
-            ->select('staff.state', \DB::raw("COUNT(state) as total"))
-            ->groupBy('staff.state')
+            ->select('staff.state_of_primary_assignment', \DB::raw("COUNT(state_of_primary_assignment) as total"))
+            ->groupBy('staff.state_of_primary_assignment')
             ->get();
         
         $chart = new StaffStat;
-        $chart->labels($dataset->pluck('state'));
-        $chart->dataset('BOWDI Staff State Chart', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => 'green']);
+        $chart->labels($dataset->pluck('state_of_primary_assignment'));
+        $chart->dataset('BOWDI Staff State of Primary Assignment Chart', 'bar', $dataset->pluck('total'))->options(['backgroundColor' => 'green']);
 
         return view('dashboard.index', compact('chart'));
     }
@@ -160,6 +160,12 @@ class DashboardController extends Controller
         $password = Hash::make('1234567890');
         $type = 2;
 
+        if($request->photo !== null){
+            $imageName = '/images/staff/'.time().'.'.$request->photo->extension();
+        }else{
+            $imageName = '';
+        }
+
         try{
 
             $staff = User::create([
@@ -187,7 +193,7 @@ class DashboardController extends Controller
                     'dob' => $request->dob,
                     'gender' => $request->gender,
                     'place_of_birth' => $request->place_of_birth,
-                    'photo' => $request->photo,
+                    'photo' => $imageName,
                     'lga' => $request->lga,
                     'state' => $request->state,
                     'nationality' => $request->nationality,
@@ -222,7 +228,12 @@ class DashboardController extends Controller
                     'account_no' => $request->account_no,
                     'bank_name' => $request->bank_name,
                     'bank_branch' => $request->bank_branch,
+                    'state_of_primary_assignment' => $request->state_of_primary_assignment,
                 ]);
+
+                if($request->photo != null){
+                    $request->photo->move('images/staff', $imageName);
+                }
 
                 return redirect()->route('dashboard-admin')->with('success', $request->first_name.' '.$request->last_name.' Added');
 
@@ -262,6 +273,12 @@ class DashboardController extends Controller
             'personal_email' => ['required'],
         ]);
 
+        if($request->photo !== null){
+            $imageName = '/images/staff/'.time().'.'.$request->photo->extension();
+        }else{
+            $imageName = '';
+        }
+
         try{
             $staff = Staff::where('id', $id)->update([
                 'rank_id' => $request->rank_id,
@@ -275,7 +292,7 @@ class DashboardController extends Controller
                 'dob' => $request->dob,
                 'gender' => $request->gender,
                 'place_of_birth' => $request->place_of_birth,
-                'photo' => $request->photo,
+                'photo' => $imageName,
                 'lga' => $request->lga,
                 'state' => $request->state,
                 'nationality' => $request->nationality,
@@ -311,6 +328,11 @@ class DashboardController extends Controller
                 'bank_name' => $request->bank_name,
                 'bank_branch' => $request->bank_branch,
             ]);
+            
+            if($request->photo != null){
+                $request->photo->move('images/staff', $imageName);
+            }
+
             return redirect()->route('dashboard-staff')->with('success', 'Staff Updated');
         }catch(Exception $e){
             return back()->with('error', 'Please try again... '.$e);

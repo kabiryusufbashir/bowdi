@@ -23,7 +23,7 @@
                         @foreach($staff as $worker)
                             <div class="p-3 shadow text-center">
                                 <div>
-                                    <img class="mx-auto" style="width:200px; 200px;" src="{{ ($worker->photo != null) ? asset('images/staff/'.$worker->photo) : asset('images/bowdi.png')  }}" alt="{{ $worker->name }}">
+                                    <img class="mx-auto" style="height:200px;" src="{{ ($worker->photo != null) ? asset($worker->photo) : asset('images/bowdi.png')  }}" alt="{{ $worker->name }}">
                                 </div>
                                 <div class="font-normal">
                                     {{ $worker->name }}
