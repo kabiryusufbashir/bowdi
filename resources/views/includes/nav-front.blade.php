@@ -9,7 +9,7 @@
     <!-- Department  -->
     <div id="deptNav" class="nav-front-menu flex justify-between px-6">
         <div>Department</div>
-        <div><i class="text-black md:text-white fas fa-book"></i></div>
+        <div><i class="text-black md:text-white fas fa-building"></i></div>
     </div>
     <div id="deptBody" class="hidden bg-green-700">
         <div id="newDept" class="nav-front-menu flex justify-between px-6">
@@ -26,7 +26,7 @@
     <!-- Rank  -->
     <div id="rankNav" class="nav-front-menu flex justify-between px-6">
         <div>Rank</div>
-        <div><i class="text-black md:text-white fas fa-book"></i></div>
+        <div><i class="text-black md:text-white fas fa-building"></i></div>
     </div>
     <div id="rankBody" class="hidden bg-green-700">
         <div id="newRank" class="nav-front-menu flex justify-between px-6">
@@ -43,7 +43,7 @@
     <!-- Staff  -->
     <div id="staffNav" class="nav-front-menu flex justify-between px-6">
         <div>Staff</div>
-        <div><i class="text-black md:text-white fas fa-user"></i></div>
+        <div><i class="text-black md:text-white fas fa-users"></i></div>
     </div>
     <div id="staffBody" class="hidden bg-green-700">
         <div id="newStaff" class="nav-front-menu flex justify-between px-6">
@@ -60,36 +60,40 @@
     <!-- Document  -->
     <div id="docNav" class="nav-front-menu flex justify-between px-6">
         <div>Document</div>
-        <div><i class="text-black md:text-white fas fa-book"></i></div>
+        <div><i class="text-black md:text-white fas fa-folder"></i></div>
     </div>
     <div id="docBody" class="hidden bg-green-700">
         <div id="newDoc" class="nav-front-menu flex justify-between px-6">
             <div>New Document</div>
         </div>
-        <div id="allDoc" class="nav-front-menu flex justify-between px-6">
-            <div>All Documents</div>
-        </div>
+        <a href="{{ route('doc') }}">
+            <div id="allDoc" class="nav-front-menu flex justify-between px-6">
+                <div>All Documents</div>
+            </div>
+        </a>
     </div>
     <!-- End of Document  -->
 
     <!-- Blog  -->
     <div id="blogNav" class="nav-front-menu flex justify-between px-6">
         <div>Blog</div>
-        <div><i class="text-black md:text-white fas fa-book"></i></div>
+        <div><i class="text-black md:text-white fas fa-blog"></i></div>
     </div>
     <div id="blogBody" class="hidden bg-green-700">
         <div id="newBlog" class="nav-front-menu flex justify-between px-6">
             <div>New Post</div>
         </div>
-        <div id="allBlog" class="nav-front-menu flex justify-between px-6">
-            <div>All Blog Posts</div>
-        </div>
+        <a href="{{ route('blog') }}">
+            <div id="allBlog" class="nav-front-menu flex justify-between px-6">
+                <div>All Blog Posts</div>
+            </div>
+        </a>
     </div>
     <!-- End of Blog  -->
 
     <div id="profileNav" class="nav-front-menu flex justify-between px-6">
         <div>Change Password</div>
-        <div><i class="text-black md:text-white fas fa-user"></i></div>
+        <div><i class="text-black md:text-white fas fa-lock"></i></div>
     </div>
     <div class="nav-front-menu flex justify-between px-6">
         <div>Logout</div>

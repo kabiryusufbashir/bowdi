@@ -11,6 +11,7 @@ use App\Models\Department;
 use App\Models\Rank;
 use App\Models\Staff;
 use App\Models\Document;
+use App\Models\Blog;
 use DB;
 
 use App\Charts\StaffStat;
@@ -508,7 +509,6 @@ class DashboardController extends Controller
             'author'=> 'required',
             'photo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'content'=> 'required',
-            'category'=> 'required',
             'status'=> 'required',
         ]);
 
@@ -517,12 +517,12 @@ class DashboardController extends Controller
         try{
             Blog::create(
                 [
-                'title'=>$request->title,
-                'author'=>$request->author,
-                'photo'=>$imageName,
-                'content'=>$request->content,
-                'category'=>$request->category,
-                'status'=>$request->status
+                'title' => $request->title,
+                'author' => $request->author,
+                'photo' => $imageName,
+                'content' => $request->content,
+                'status' => $request->status,
+                'user_id' => Auth::user()->id
                 ]);
                 
                 $request->photo->move('images/blogs', $imageName);
@@ -535,7 +535,7 @@ class DashboardController extends Controller
 
     public function blogshow($id){
         $blog = Blog::findOrFail($id);
-        return view('dashboard.blogshow', ['blog'=>$blog]);
+        return view('dashboard.show.blog', ['blog'=>$blog]);
     }
     
     public function editblog($id)
@@ -555,7 +555,6 @@ class DashboardController extends Controller
             $data = request()->validate([
                 'title'=> 'required',
                 'content'=> 'required',
-                'category'=> 'required',
                 'status'=> 'required',
                 'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
@@ -564,7 +563,6 @@ class DashboardController extends Controller
                 $blog = Blog::where('id', $id)->update([
                     'title'=> $request->title,
                     'content'=> $request->content,
-                    'category'=> $request->category,
                     'status'=> $request->status,
                     'photo'=> $imageName
                     ]);
@@ -579,7 +577,6 @@ class DashboardController extends Controller
                 'title'=> 'required',
                 'status'=> 'required',
                 'content'=> 'required',
-                'category'=> 'required'
             ]);
             
             try{

@@ -15,26 +15,32 @@
         <div class="my-auto col-span-1">
             <div class="stats-div w-full mx-4">
                 <a href="{{ route('dashboard-staff') }}" class="flex items-center">
-                    <span><i class="fas fa-user-circle"></i></span> &nbsp;&nbsp;
+                    <span><i class="fas fa-users"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Staff: {{ $staff->count() }}</span>
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
                 <a href="{{ route('dept') }}" class="flex items-center">
-                    <span><i class="fas fa-book"></i></span> &nbsp;&nbsp;
+                    <span><i class="fas fa-building"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Department: {{ $department->count() }}</span>
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
                 <a href="{{ route('rank') }}" class="flex items-center">
-                    <span><i class="fas fa-book"></i></span> &nbsp;&nbsp;
+                    <span><i class="fas fa-building"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Rank: {{ $rank->count() }}</span>
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
                 <a href="{{ route('doc') }}" class="flex items-center">
-                    <span><i class="fas fa-book"></i></span> &nbsp;&nbsp;
+                    <span><i class="fas fa-folder"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Documents: {{ $document->count() }}</span>
+                </a>
+            </div>
+            <div class="stats-div w-full mx-4">
+                <a href="{{ route('doc') }}" class="flex items-center">
+                    <span><i class="fas fa-blog"></i></span> &nbsp;&nbsp;
+                    <span class="text-white">Blog Posts: {{ $blog->count() }}</span>
                 </a>
             </div>
         </div>

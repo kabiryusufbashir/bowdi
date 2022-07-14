@@ -11,6 +11,7 @@ use App\Models\Department;
 use App\Models\Document;
 use App\Models\Rank;
 use App\Models\Staff;
+use App\Models\Blog;
 
 class GlobalData
 {
@@ -28,12 +29,14 @@ class GlobalData
         $department = Department::all();
         $document = Document::where('status', 1)->get();
         $rank = Rank::all();
+        $blog = Blog::all();
 
         View::share('supervisor', $supervisor);
         View::share('staff', $staff);
         View::share('department', $department);
         View::share('document', $document);
         View::share('rank', $rank);
+        View::share('blog', $blog);
         
         return $next($request);
     }
