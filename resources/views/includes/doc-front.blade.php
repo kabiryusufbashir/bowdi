@@ -18,7 +18,7 @@
                     </div>
                     <div>
                         <label for="description" class="text-lg font-medium">Description</label><br>
-                        <input type="text" name="description" value="{{old('description')}}" placeholder="Document Name" class="input-field">
+                        <input type="text" name="description" value="{{old('description')}}" placeholder="Document Description" class="input-field">
                         @error('description')
                             {{$message}}
                         @enderror

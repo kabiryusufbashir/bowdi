@@ -26,9 +26,9 @@
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
-                <a href="{{ route('rank') }}" class="flex items-center">
-                    <span><i class="fas fa-building"></i></span> &nbsp;&nbsp;
-                    <span class="text-white">Rank: {{ $rank->count() }}</span>
+                <a href="{{ route('report') }}" class="flex items-center">
+                    <span><i class="fas fa-folder"></i></span> &nbsp;&nbsp;
+                    <span class="text-white">Reports: {{ $report->count() }}</span>
                 </a>
             </div>
             <div class="stats-div w-full mx-4">

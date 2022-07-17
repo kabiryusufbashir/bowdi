@@ -54,6 +54,12 @@
                 <div>Staff</div>
             </div>
         </a>
+        <div id="newLeaveReqest" class="nav-front-menu flex justify-between px-6">
+            <div>Leave Request</div>
+        </div>
+        <div id="allLeaveRequest" class="nav-front-menu flex justify-between px-6">
+            <div>All Leave Requests</div>
+        </div>
     </div>
     <!-- End of Staff  -->
 
@@ -73,6 +79,23 @@
         </a>
     </div>
     <!-- End of Document  -->
+
+    <!-- Report  -->
+    <div id="reportNav" class="nav-front-menu flex justify-between px-6">
+        <div>Report</div>
+        <div><i class="text-black md:text-white fas fa-folder"></i></div>
+    </div>
+    <div id="reportBody" class="hidden bg-green-700">
+        <div id="newReport" class="nav-front-menu flex justify-between px-6">
+            <div>New Report</div>
+        </div>
+        <a href="{{ route('report') }}">
+            <div id="allReports" class="nav-front-menu flex justify-between px-6">
+                <div>All Reports</div>
+            </div>
+        </a>
+    </div>
+    <!-- End of Report  -->
 
     <!-- Blog  -->
     <div id="blogNav" class="nav-front-menu flex justify-between px-6">

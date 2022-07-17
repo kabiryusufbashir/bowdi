@@ -194,7 +194,37 @@ let closeModalDoc = document.querySelector('#closeModalDoc')
     
 //End of Document
 
-// Document Module 
+// Report Module 
+let reportNav = document.querySelector('#reportNav')
+let reportBody = document.querySelector('#reportBody')
+let newReport = document.querySelector('#newReport')
+let report = document.querySelector('#report')
+let addReportForm = document.querySelector('#addReportForm')
+let closeModalReport = document.querySelector('#closeModalReport')
+    
+    //Report Nav
+    reportNav.addEventListener('click', ()=>{
+        if(reportBody.classList.contains('hidden')){
+            reportBody.classList.remove('hidden')
+        }else{
+            reportBody.classList.add('hidden')
+        }
+    })
+
+    //New Report 
+    newReport.addEventListener('click', ()=>{
+        report.classList.remove('hidden')
+        addReportForm.classList.remove('hidden')
+    })
+
+    // Close Modal 
+    closeModalReport.addEventListener('click', ()=>{
+        report.classList.add('hidden')
+    })
+    
+//End of Report
+
+// Blog Module 
 let blogNav = document.querySelector('#blogNav')
 let blogBody = document.querySelector('#blogBody')
 let newBlog = document.querySelector('#newBlog')

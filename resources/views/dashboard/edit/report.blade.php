@@ -14,40 +14,40 @@
         </div>
         <!-- Section  -->
         <div class="lg:w-2/3 w-full mx-auto shadow-lg">
-            <form action="{{ route('doc-update', $doc->id) }}" method="POST" class="px-6 lg:px-8 py-8">
+            <form action="{{ route('report-update', $report->id) }}" method="POST" class="px-6 lg:px-8 py-8">
                 @csrf
                 @method('PATCH')
                 <div>
                     <label for="name" class="text-lg font-medium">Name</label><br>
-                    <input type="text" name="name" value="{{$doc->name}}" placeholder="Document Name" class="input-field">
+                    <input type="text" name="name" value="{{$report->name}}" placeholder="Report Name" class="input-field">
                     @error('name')
                         {{$message}}
                     @enderror
                 </div>
                 <div>
                     <label for="description" class="text-lg font-medium">Description</label><br>
-                    <input type="text" name="description" value="{{$doc->description}}" placeholder="Document Description" class="input-field">
+                    <input type="text" name="description" value="{{$report->description}}" placeholder="Report Description" class="input-field">
                     @error('description')
                         {{$message}}
                     @enderror
                 </div>
                 <div>
-                    <label for="path" class="text-lg font-medium">Upload Document</label><br>
-                    <input type="file" name="path" placeholder="Upload Document" class="input-field">
-                    <input type="hidden" name="old_path" value="{{$doc->path}}" class="input-field">
+                    <label for="path" class="text-lg font-medium">Upload Report</label><br>
+                    <input type="file" name="path" placeholder="Upload Report" class="input-field">
+                    <input type="hidden" name="old_path" value="{{$report->path}}" class="input-field">
                     @error('path')
                         {{$message}}
                     @enderror
                 </div>
                 <div>
                     <label for="date" class="text-lg font-medium">Date</label><br>
-                    <input type="date" name="date" value="{{$doc->date}}" placeholder="Document Date" class="input-field">
+                    <input type="date" name="date" value="{{$report->date}}" placeholder="Report Date" class="input-field">
                     @error('date')
                         {{$message}}
                     @enderror
                 </div>
                 <div class="text-center">
-                    <button class="submit-button">Edit Document</button>
+                    <button class="submit-button">Edit Report</button>
                 </div>
             </form>
         </div>

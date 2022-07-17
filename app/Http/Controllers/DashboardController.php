@@ -12,6 +12,7 @@ use App\Models\Rank;
 use App\Models\Staff;
 use App\Models\Document;
 use App\Models\Blog;
+use App\Models\Report;
 use DB;
 
 use App\Charts\StaffStat;
@@ -32,7 +33,7 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('chart'));
     }
 
-    //Add Dept
+    //Department Module
     public function addDept(Request $request){
         $data = $request->validate([
             'name' => ['required'],
@@ -50,13 +51,11 @@ class DashboardController extends Controller
         }
     }
 
-    //Dept All
     public function dept(){
         $dept = Department::orderby('created_at', 'desc')->paginate(50);
         return view('dashboard.dept', compact('dept'));
     }
 
-    //Delete Dept
     public function deletedept($id){
         $dept = Department::findOrFail($id);
         try{
@@ -67,13 +66,11 @@ class DashboardController extends Controller
         }
     }
 
-    //Edit dept
     public function editdept($id){
         $dept = Department::findOrFail($id);
         return view('dashboard.edit.dept', compact('dept'));
     }
 
-    //Update dept
     public function updatedept(Request $request, $id){
         $data = $request->validate([
             'name' => ['required']
@@ -88,8 +85,9 @@ class DashboardController extends Controller
             return back()->with('error', 'Please try again... '.$e);
         }
     }
+    //End of Department Module
 
-    //Add Rank
+    //Rank Module
     public function addrank(Request $request){
         $data = $request->validate([
             'name' => ['required'],
@@ -107,13 +105,11 @@ class DashboardController extends Controller
         }
     }
 
-    //Rank All
     public function rank(){
         $rank = Rank::orderby('created_at', 'desc')->paginate(50);
         return view('dashboard.rank', compact('rank'));
     }
 
-    //Delete Rank
     public function deleterank($id){
         $rank = Rank::findOrFail($id);
         try{
@@ -124,13 +120,11 @@ class DashboardController extends Controller
         }
     }
 
-    //Edit Rank
     public function editrank($id){
         $rank = Rank::findOrFail($id);
         return view('dashboard.edit.rank', compact('rank'));
     }
 
-    //Update Rank
     public function updaterank(Request $request, $id){
         $data = $request->validate([
             'name' => ['required']
@@ -145,8 +139,9 @@ class DashboardController extends Controller
             return back()->with('error', 'Please try again... '.$e);
         }
     }
+    //End of Rank Module
     
-    //Staff
+    //Staff Module
     public function addStaff(Request $request){
         $data = $request->validate([
             'first_name' => ['required'],
@@ -246,7 +241,6 @@ class DashboardController extends Controller
         }
     }
     
-    //Staff
     public function staff(){
         $users = User::where('status', 1)->get();
         $staff = DB::table('staff')
@@ -369,7 +363,6 @@ class DashboardController extends Controller
         }
     }
     
-    //Edit Profile
     public function editProfile(Request $request){
         
         $data = $request->validate([
@@ -393,8 +386,9 @@ class DashboardController extends Controller
             }
         }
     }
+    //End of Staff Module
 
-    //Add Document
+    //Document Module
     public function addDoc(Request $request){
         $data = $request->validate([
             'name' => ['required'],
@@ -416,7 +410,7 @@ class DashboardController extends Controller
         try{
             Document::create([
                 'name' => $data['name'],
-                'description' => $data['description'],
+                'description' => $request->description,
                 'path' => $path,
                 'date' => $data['date'],
                 'status' => 1,
@@ -430,13 +424,11 @@ class DashboardController extends Controller
         }
     }
 
-    //Doc All
     public function doc(){
         $doc = Document::where('status', 1)->orderby('created_at', 'desc')->paginate(50);
         return view('dashboard.doc', compact('doc'));
     }
 
-    //Delete Document
     public function deletedoc($id){
         
         try{
@@ -448,13 +440,11 @@ class DashboardController extends Controller
 
     }
 
-    //Edit Document
     public function editdoc($id){
         $doc = Document::findOrFail($id);
         return view('dashboard.edit.doc', compact('doc'));
     }
 
-    //Update Document
     public function updatedoc(Request $request, $id){
         
         if($request->path != null){
@@ -496,7 +486,109 @@ class DashboardController extends Controller
             return back()->with('error', 'Please try again... '.$e);
         }
     }
+    //End of Document Module
 
+    //Report Module
+    public function addReport(Request $request){
+        $data = $request->validate([
+            'name' => ['required'],
+            'path' => ['required', 'mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
+            'date' => ['required'],
+        ]);
+
+        if($file = $request->file('path')){
+            $path = time().str_replace(' ', '', $file->getClientOriginalName());
+            $file->move('assets/reports/', $path);
+            
+            if($data['path'] != null){
+                if(file_exists(public_path().'/assets/reports/'.$data['path'])){
+                    unlink(public_path().'/assets/reports/'.$data['path']);
+                }
+            }
+        }
+
+        try{
+            Report::create([
+                'name' => $data['name'],
+                'description' => $request->description,
+                'path' => $path,
+                'date' => $data['date'],
+                'status' => 1,
+                'user_id' => Auth::user()->id,
+            ]);
+
+            return redirect()->route('dashboard-admin')->with('success', $data['name'].' uploaded successfully'); 
+            
+        }catch(Expection $e){
+            return back()->with(['error' => 'Please try again later! ('.$e.')']);
+        }
+    }
+
+    public function report(){
+        $report = Report::where('status', 1)->orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.report', compact('report'));
+    }
+
+    public function deletereport($id){
+        
+        try{
+            $report = Report::where('id', $id)->update(['status'=> 0]);
+            return redirect()->route('report')->with('success', 'Report Deleted');
+        }catch(Exception $e){
+            return redirect()->route('report')->with('error', 'Please try again... '.$e);
+        }
+
+    }
+
+    public function editreport($id){
+        $report = Report::findOrFail($id);
+        return view('dashboard.edit.report', compact('report'));
+    }
+
+    public function updatereport(Request $request, $id){
+        
+        if($request->path != null){
+            $data = $request->validate([
+                'name' => ['required'],
+                'path' => ['mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
+                'date' => ['required'],
+            ]);
+            
+            if($file = $request->file('path')){
+                $path = time().str_replace(' ', '', $file->getClientOriginalName());
+                $file->move('assets/reports/', $path);
+                
+                if($data['path'] != null){
+                    if(file_exists(public_path().'/assets/reports/'.$data['path'])){
+                        unlink(public_path().'/assets/reports/'.$data['path']);
+                    }
+                }
+            }
+
+        }else{
+            $data = $request->validate([
+                'name' => ['required'],
+                'date' => ['required'],
+            ]);
+
+            $path = $request->old_path;
+        }
+
+        try{
+            $report = Report::where('id', $id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'path' => $path,
+                'date' => $request->date
+            ]);
+            return redirect()->route('report')->with('success', 'Report Updated');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    }
+    //End of Report Module
+
+    //Blog
     public function blog()
     {
         $blogs = Blog::orderby('id','desc')->paginate(9);
@@ -621,5 +713,6 @@ class DashboardController extends Controller
             return back()->with('error', 'Please try again... '.$e);
         }
     }
+    //End of Blog Module
 
 }

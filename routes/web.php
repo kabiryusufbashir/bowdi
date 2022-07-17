@@ -31,6 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::post('/adddept', [DashboardController::class, 'addDept'])->name('add-dept')->middleware('auth:web');
         Route::post('/addrank', [DashboardController::class, 'addRank'])->name('add-rank')->middleware('auth:web');
         Route::post('/addDoc', [DashboardController::class, 'addDoc'])->name('add-doc')->middleware('auth:web');
+        Route::post('/addReport', [DashboardController::class, 'addReport'])->name('add-report')->middleware('auth:web');
         Route::post('/addBlog', [DashboardController::class, 'addBlog'])->name('add-blog')->middleware('auth:web');
         Route::post('/addStaff', [DashboardController::class, 'addStaff'])->name('add-staff')->middleware('auth:web');
         Route::patch('/editprofile', [DashboardController::class, 'editProfile'])->name('edit-profile')->middleware('auth:web');
@@ -52,6 +53,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/doc/{doc}/edit', [DashboardController::class, 'editdoc'])->name('doc-edit')->middleware('auth:web');
         Route::patch('/doc/{doc}/update', [DashboardController::class, 'updatedoc'])->name('doc-update')->middleware('auth:web');
         Route::delete('/doc/{doc}', [DashboardController::class, 'deletedoc'])->name('doc-delete')->middleware('auth:web');
+
+        //Report
+        Route::get('/report', [DashboardController::class, 'report'])->name('report')->middleware('auth:web');
+        Route::get('/report/{report}/edit', [DashboardController::class, 'editreport'])->name('report-edit')->middleware('auth:web');
+        Route::patch('/report/{report}/update', [DashboardController::class, 'updatereport'])->name('report-update')->middleware('auth:web');
+        Route::delete('/report/{report}', [DashboardController::class, 'deletereport'])->name('report-delete')->middleware('auth:web');
 
         //Blog
         Route::get('/blog', [DashboardController::class, 'blog'])->name('blog')->middleware('auth:web');
