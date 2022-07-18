@@ -10,5 +10,7 @@
 @include('includes.blog-front')
 <!-- Staff  -->
 @include('includes.staff-front')
+<!-- Report  -->
+@include('includes.leave-front')
 <!-- Profile -->
 @include('includes.profile-front')

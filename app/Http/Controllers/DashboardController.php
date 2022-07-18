@@ -13,6 +13,7 @@ use App\Models\Staff;
 use App\Models\Document;
 use App\Models\Blog;
 use App\Models\Report;
+use App\Models\Leave;
 use DB;
 
 use App\Charts\StaffStat;
@@ -587,6 +588,80 @@ class DashboardController extends Controller
         }
     }
     //End of Report Module
+
+    // Leave Module
+    public function addLeave(Request $request){
+        $data = $request->validate([
+            'request_date' => ['required'],
+            'no_of_days' => ['required'],
+            'date_of_leave' => ['required'],
+            'nature_of_leave' => ['required'],
+        ]);
+
+        try{
+            Leave::create([
+                'request_date' => $data['request_date'],
+                'no_of_days' => $request->no_of_days,
+                'date_of_leave' => $request->date_of_leave,
+                'nature_of_leave' => $request->nature_of_leave,
+                'approved_by' => $request->approved_by,
+                'final_authorization' => $request->final_authorization,
+                'user_id' => Auth::user()->id,
+                'status' => 0,
+            ]);
+
+            return redirect()->route('dashboard-admin')->with('success', 'Leave request sent successfully'); 
+            
+        }catch(Expection $e){
+            return back()->with(['error' => 'Please try again later! ('.$e.')']);
+        }
+    }
+
+    public function leave(){
+        $leave = Leave::orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.leave', compact('leave'));
+    }
+
+    public function deleteleave($id){
+        
+        try{
+            $leave = Leave::where('id', $id)->delete();
+            return redirect()->route('leave')->with('success', 'Leave Request Deleted');
+        }catch(Exception $e){
+            return redirect()->route('leave')->with('error', 'Please try again... '.$e);
+        }
+
+    }
+
+    public function editleave($id){
+        $leave = Leave::findOrFail($id);
+        return view('dashboard.edit.leave', compact('leave'));
+    }
+
+    public function updateleave(Request $request, $id){
+        
+        $data = $request->validate([
+            'request_date' => ['required'],
+            'no_of_days' => ['required'],
+            'date_of_leave' => ['required'],
+            'nature_of_leave' => ['required'],
+        ]);
+
+        try{
+            $leave = Leave::where('id', $id)->update([
+                'request_date' => $data['request_date'],
+                'no_of_days' => $request->no_of_days,
+                'date_of_leave' => $request->date_of_leave,
+                'nature_of_leave' => $request->nature_of_leave,
+                'approved_by' => $request->approved_by,
+                'final_authorization' => $request->final_authorization,
+            ]);
+            return redirect()->route('leave')->with('success', 'Leave request Updated');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    } 
+    //End of Leave Module 
 
     //Blog
     public function blog()

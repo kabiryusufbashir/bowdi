@@ -86,6 +86,10 @@ let officialDetails = document.querySelector('#officialDetails')
 let prevBankDetails = document.querySelector('#prevBankDetails')
 let addStaffForm = document.querySelector('#addStaffForm')
 let closeModalStaff = document.querySelector('#closeModalStaff')
+let newLeaveRequest = document.querySelector('#newLeaveRequest')
+let leave = document.querySelector('#leave')
+let addLeaveForm = document.querySelector('#addLeaveForm')
+let closeModalLeave = document.querySelector('#closeModalLeave')
 
     //Staff Nav
     staffNav.addEventListener('click', ()=>{
@@ -96,9 +100,20 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
         }
     })
 
+    // Add Staff 
     newStaff.addEventListener('click', ()=>{
         staff.classList.remove('hidden')
         addStaffForm.classList.remove('hidden')
+    })
+
+    // Leave Request 
+    newLeaveRequest.addEventListener('click', ()=>{
+        leave.classList.remove('hidden')
+        addLeaveForm.classList.remove('hidden')
+    })
+
+    closeModalLeave.addEventListener('click', ()=>{
+        leave.classList.add('hidden')
     })
 
     //Next Staff Contact Details
@@ -163,6 +178,7 @@ let closeModalStaff = document.querySelector('#closeModalStaff')
     closeModalStaff.addEventListener('click', ()=>{
         staff.classList.add('hidden')
     })
+//End of Staff Request
 
 // Document Module 
 let docNav = document.querySelector('#docNav')

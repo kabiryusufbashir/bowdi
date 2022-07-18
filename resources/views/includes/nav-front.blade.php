@@ -54,12 +54,14 @@
                 <div>Staff</div>
             </div>
         </a>
-        <div id="newLeaveReqest" class="nav-front-menu flex justify-between px-6">
+        <div id="newLeaveRequest" class="nav-front-menu flex justify-between px-6">
             <div>Leave Request</div>
         </div>
-        <div id="allLeaveRequest" class="nav-front-menu flex justify-between px-6">
-            <div>All Leave Requests</div>
-        </div>
+        <a href="{{ route('leave') }}">
+            <div id="allLeaveRequest" class="nav-front-menu flex justify-between px-6">
+                <div>All Leave Requests</div>
+            </div>
+        </a>
     </div>
     <!-- End of Staff  -->
 
@@ -114,6 +116,7 @@
     </div>
     <!-- End of Blog  -->
 
+    <!-- Profile  -->
     <div id="profileNav" class="nav-front-menu flex justify-between px-6">
         <div>Change Password</div>
         <div><i class="text-black md:text-white fas fa-lock"></i></div>
@@ -127,4 +130,5 @@
             </button>
         </form> 
     </div>
+    <!-- End of Profile  -->
 </div>
