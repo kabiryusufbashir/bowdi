@@ -31,6 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::post('/adddept', [DashboardController::class, 'addDept'])->name('add-dept')->middleware('auth:web');
         Route::post('/addrank', [DashboardController::class, 'addRank'])->name('add-rank')->middleware('auth:web');
         Route::post('/addDoc', [DashboardController::class, 'addDoc'])->name('add-doc')->middleware('auth:web');
+        Route::post('/addDirectory', [DashboardController::class, 'addDirectory'])->name('add-directory')->middleware('auth:web');
         Route::post('/addReport', [DashboardController::class, 'addReport'])->name('add-report')->middleware('auth:web');
         Route::post('/addLeave', [DashboardController::class, 'addLeave'])->name('add-leave')->middleware('auth:web');
         Route::post('/addBlog', [DashboardController::class, 'addBlog'])->name('add-blog')->middleware('auth:web');
@@ -48,6 +49,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/rank/{rank}/edit', [DashboardController::class, 'editrank'])->name('rank-edit')->middleware('auth:web');
         Route::patch('/rank/{rank}/update', [DashboardController::class, 'updaterank'])->name('rank-update')->middleware('auth:web');
         Route::delete('/rank/{rank}', [DashboardController::class, 'deleterank'])->name('rank-delete')->middleware('auth:web');
+
+        //Directory
+        Route::get('/directory', [DashboardController::class, 'directory'])->name('directory')->middleware('auth:web');
+        Route::get('/directory/{directory}/edit', [DashboardController::class, 'editdirectory'])->name('directory-edit')->middleware('auth:web');
+        Route::patch('/directory/{directory}/update', [DashboardController::class, 'updatedirectory'])->name('directory-update')->middleware('auth:web');
+        Route::delete('/directory/{directory}', [DashboardController::class, 'deletedirectory'])->name('directory-delete')->middleware('auth:web');
 
         //Document
         Route::get('/doc', [DashboardController::class, 'doc'])->name('doc')->middleware('auth:web');

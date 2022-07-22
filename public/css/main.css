@@ -16,7 +16,7 @@
     color: white;
 }
 
-#dept, #rank, #staff, #profile, #doc, #blog, #report, #leave{
+#dept, #rank, #staff, #profile, #doc, #blog, #report, #leave, #directory{
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 300;
@@ -27,14 +27,14 @@
     overflow: auto;
 }
 
-#dept-header, #rank-header, #staff-header, #profile-header, #doc-header, #blog-header, #report-header, #leave-header{
+#dept-header, #rank-header, #staff-header, #profile-header, #doc-header, #blog-header, #report-header, #leave-header, #directory-header{
     height: 65px;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
 }
 
-#dept-content, #rank-content, #staff-content, #profile-content, #doc-content, #blog-content, #report-content, #leave-content{
+#dept-content, #rank-content, #staff-content, #profile-content, #doc-content, #blog-content, #report-content, #leave-content, #directory-content{
     margin: 4% auto;
     width: 50%;
     background: #FFFFFF;

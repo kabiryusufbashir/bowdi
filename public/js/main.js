@@ -183,6 +183,10 @@ let closeModalLeave = document.querySelector('#closeModalLeave')
 // Document Module 
 let docNav = document.querySelector('#docNav')
 let docBody = document.querySelector('#docBody')
+let newDirectory = document.querySelector('#newDirectory')
+let directory = document.querySelector('#directory')
+let addDirectoryForm = document.querySelector('#addDirectoryForm')
+let closeModalDirectory = document.querySelector('#closeModalDirectory')
 let newDoc = document.querySelector('#newDoc')
 let doc = document.querySelector('#doc')
 let addDocForm = document.querySelector('#addDocForm')
@@ -195,6 +199,17 @@ let closeModalDoc = document.querySelector('#closeModalDoc')
         }else{
             docBody.classList.add('hidden')
         }
+    })
+
+    //New Directory 
+    newDirectory.addEventListener('click', ()=>{
+        directory.classList.remove('hidden')
+        addDirectoryForm.classList.remove('hidden')
+    })
+
+    // Close Modal Directory
+    closeModalDirectory.addEventListener('click', ()=>{
+        directory.classList.add('hidden')
     })
 
     //New Document 
@@ -267,19 +282,6 @@ let closeModalBlog = document.querySelector('#closeModalBlog')
     closeModalBlog.addEventListener('click', ()=>{
         blog.classList.add('hidden')
     })
-
-//Change Blog Photo
-const changePhoto = document.querySelector("#changePhoto");
-const changePhotoField = document.querySelector("#changePhotoField");
-
-changePhoto.addEventListener('click', ()=>{
-    if(changePhotoField.classList.contains('hidden')){
-        changePhotoField.classList.remove('hidden');
-    }else{
-        changePhotoField.classList.add('hidden');
-    }
-});
-//End of Blog
 
 //Profile Module
 let profileNav = document.querySelector('#profileNav')

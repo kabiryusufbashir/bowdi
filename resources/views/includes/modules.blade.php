@@ -4,6 +4,8 @@
 @include('includes.rank-front')
 <!-- Document  -->
 @include('includes.doc-front')
+<!-- Document  -->
+@include('includes.directory-front')
 <!-- Report  -->
 @include('includes.report-front')
 <!-- Blog  -->

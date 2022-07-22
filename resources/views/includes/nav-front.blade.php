@@ -71,8 +71,14 @@
         <div><i class="text-black md:text-white fas fa-folder"></i></div>
     </div>
     <div id="docBody" class="hidden bg-green-700">
+        <div id="newDirectory" class="nav-front-menu flex justify-between px-6">
+            <div>Create Directory</div>
+        </div>
+        <div id="allDirectories" class="nav-front-menu flex justify-between px-6">
+            <div>All Directories</div>
+        </div>
         <div id="newDoc" class="nav-front-menu flex justify-between px-6">
-            <div>New Document</div>
+            <div>Upload Document</div>
         </div>
         <a href="{{ route('doc') }}">
             <div id="allDoc" class="nav-front-menu flex justify-between px-6">

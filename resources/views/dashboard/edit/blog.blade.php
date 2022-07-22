@@ -87,3 +87,19 @@
         filebrowserUploadMethod: 'form'
     });
 </script>
+
+<script src="text/javascript">
+    
+//Change Blog Photo
+const changePhoto = document.querySelector("#changePhoto");
+const changePhotoField = document.querySelector("#changePhotoField");
+
+changePhoto.addEventListener('click', ()=>{
+    if(changePhotoField.classList.contains('hidden')){
+        changePhotoField.classList.remove('hidden');
+    }else{
+        changePhotoField.classList.add('hidden');
+    }
+});
+//End of Blog
+</script>
