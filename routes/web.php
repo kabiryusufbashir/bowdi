@@ -63,6 +63,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
         //Leave
         Route::get('/leave', [DashboardController::class, 'leave'])->name('leave')->middleware('auth:web');
+        Route::post('/leave/approve', [DashboardController::class, 'approveleave'])->name('leave-approve')->middleware('auth:web');
+        Route::post('/leave/reject', [DashboardController::class, 'rejectleave'])->name('leave-reject')->middleware('auth:web');
         Route::get('/leave/{leave}/edit', [DashboardController::class, 'editleave'])->name('leave-edit')->middleware('auth:web');
         Route::patch('/leave/{leave}/update', [DashboardController::class, 'updateleave'])->name('leave-update')->middleware('auth:web');
         Route::delete('/leave/{leave}', [DashboardController::class, 'deleteleave'])->name('leave-delete')->middleware('auth:web'); 

@@ -618,7 +618,12 @@ class DashboardController extends Controller
     }
 
     public function leave(){
-        $leave = Leave::orderby('created_at', 'desc')->paginate(50);
+        $user_id = Auth::user()->id;
+        if(Auth::user()->type == 1){
+            $leave = Leave::orderby('created_at', 'desc')->paginate(50);
+        }else{
+            $leave = Leave::where('user_id', $user_id)->orderby('created_at', 'desc')->paginate(50);
+        }
         return view('dashboard.leave', compact('leave'));
     }
 
@@ -661,6 +666,32 @@ class DashboardController extends Controller
             return back()->with('error', 'Please try again... '.$e);
         }
     } 
+
+    public function approveleave(Request $request){
+        $leave_id = $request->leave_id;
+        try{
+            $leave = Leave::where('id', $leave_id)->update([
+                'status' => 1,
+                'approved_by' => Auth::user()->id,
+            ]);
+            return redirect()->route('leave')->with('success', 'Leave request approved');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    }
+
+    public function rejectleave(Request $request){
+        $leave_id = $request->leave_id;
+        try{
+            $leave = Leave::where('id', $leave_id)->update([
+                'status' => 2,
+                'approved_by' => Auth::user()->id,
+            ]);
+            return redirect()->route('leave')->with('success', 'Leave request rejected');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    }
     //End of Leave Module 
 
     //Blog
