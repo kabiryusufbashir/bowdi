@@ -30,24 +30,26 @@
                             {{$message}}
                         @enderror
                     </div>
-                    <div>
-                        <label for="date" class="text-lg font-medium">Date</label><br>
-                        <input type="date" name="date" value="{{old('date')}}" placeholder="Document Date" class="input-field">
-                        @error('date')
-                            {{$message}}
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="category" class="text-lg font-medium">Category</label><br>
-                        <select name="category" value="{{old('category')}}" class="input-field">
-                            <option value="">Select Document Category</option>
-                            @foreach($directory as $folder)
-                                <option value="{{ $folder->id }}">{{ $folder->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('category')
-                            {{$message}}
-                        @enderror
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="date" class="text-lg font-medium">Date</label><br>
+                            <input type="date" name="date" value="{{old('date')}}" placeholder="Document Date" class="input-field">
+                            @error('date')
+                                {{$message}}
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="category" class="text-lg font-medium">Category</label><br>
+                            <select name="category" value="{{old('category')}}" class="input-field">
+                                <option value="">Select Document Category</option>
+                                @foreach($directory as $folder)
+                                    <option value="{{ $folder->id }}">{{ $folder->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('category')
+                                {{$message}}
+                            @enderror
+                        </div>
                     </div>
                     <div class="text-center">
                         <button class="submit-button">Add Document</button>

@@ -39,12 +39,26 @@
                         {{$message}}
                     @enderror
                 </div>
-                <div>
-                    <label for="date" class="text-lg font-medium">Date</label><br>
-                    <input type="date" name="date" value="{{$doc->date}}" placeholder="Document Date" class="input-field">
-                    @error('date')
-                        {{$message}}
-                    @enderror
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="date" class="text-lg font-medium">Date</label><br>
+                        <input type="date" name="date" value="{{$doc->date}}" placeholder="Document Date" class="input-field">
+                        @error('date')
+                            {{$message}}
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="category" class="text-lg font-medium">Category</label><br>
+                        <select name="category" class="input-field">
+                            <option value="{{$doc->category}}">{{ App\Models\Directory::where('id', $doc->category)->pluck('name')->first() }}</option>
+                            @foreach($directory as $folder)
+                                <option value="{{ $folder->id }}">{{ $folder->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category')
+                            {{$message}}
+                        @enderror
+                    </div>
                 </div>
                 <div class="text-center">
                     <button class="submit-button">Edit Document</button>

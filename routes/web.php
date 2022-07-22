@@ -59,6 +59,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         //Document
         Route::get('/doc', [DashboardController::class, 'doc'])->name('doc')->middleware('auth:web');
         Route::get('/doc/{doc}/edit', [DashboardController::class, 'editdoc'])->name('doc-edit')->middleware('auth:web');
+        Route::get('/doc/{category}', [DashboardController::class, 'docshow'])->name('doc-show')->middleware('auth:web');
         Route::patch('/doc/{doc}/update', [DashboardController::class, 'updatedoc'])->name('doc-update')->middleware('auth:web');
         Route::delete('/doc/{doc}', [DashboardController::class, 'deletedoc'])->name('doc-delete')->middleware('auth:web');
 

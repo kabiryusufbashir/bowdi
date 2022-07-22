@@ -450,6 +450,7 @@ class DashboardController extends Controller
             'name' => ['required'],
             'path' => ['required', 'mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
             'date' => ['required'],
+            'category' => ['required'],
         ]);
 
         if($file = $request->file('path')){
@@ -469,6 +470,7 @@ class DashboardController extends Controller
                 'description' => $request->description,
                 'path' => $path,
                 'date' => $data['date'],
+                'category' => $data['category'],
                 'status' => 1,
                 'user_id' => Auth::user()->id,
             ]);
@@ -501,6 +503,11 @@ class DashboardController extends Controller
         return view('dashboard.edit.doc', compact('doc'));
     }
 
+    public function docshow($category){
+        $doc = Document::where('category', $category)->where('status', 1)->orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.show.doc', ['doc'=>$doc]);
+    }
+
     public function updatedoc(Request $request, $id){
         
         if($request->path != null){
@@ -508,6 +515,7 @@ class DashboardController extends Controller
                 'name' => ['required'],
                 'path' => ['mimes:pdf,doc,docx,txt,jpeg,jpg,png,'],
                 'date' => ['required'],
+                'category' => ['required'],
             ]);
             
             if($file = $request->file('path')){
@@ -525,6 +533,7 @@ class DashboardController extends Controller
             $data = $request->validate([
                 'name' => ['required'],
                 'date' => ['required'],
+                'category' => ['required'],
             ]);
 
             $path = $request->old_path;
@@ -535,7 +544,8 @@ class DashboardController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'path' => $path,
-                'date' => $request->date
+                'date' => $request->date,
+                'category' => $request->category
             ]);
             return redirect()->route('doc')->with('success', 'Document Updated');
         }catch(Exception $e){

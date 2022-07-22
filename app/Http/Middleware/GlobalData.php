@@ -33,7 +33,7 @@ class GlobalData
         $rank = Rank::all();
         $blog = Blog::all();
         $report = Report::where('status', 1)->get();
-        $directory = Directory::all();
+        $directory = Directory::orderby('name', 'asc')->get();
 
         View::share('supervisor', $supervisor);
         View::share('staff', $staff);
