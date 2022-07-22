@@ -11,6 +11,7 @@ use App\Models\Department;
 use App\Models\Rank;
 use App\Models\Staff;
 use App\Models\Document;
+use App\Models\Directory;
 use App\Models\Blog;
 use App\Models\Report;
 use App\Models\Leave;
@@ -388,6 +389,60 @@ class DashboardController extends Controller
         }
     }
     //End of Staff Module
+
+    //Directory Module
+    public function adddirectory(Request $request){
+        $data = $request->validate([
+            'name' => ['required'],
+        ]);
+
+        try{
+            Directory::create([
+                'name' => $data['name'],
+            ]);
+
+            return redirect()->route('dashboard-admin')->with('success', $data['name'].' Directory added'); 
+            
+        }catch(Expection $e){
+            return back()->with(['error' => 'Please try again later! ('.$e.')']);
+        }
+    }
+
+    public function directory(){
+        $directory = Directory::orderby('created_at', 'desc')->paginate(50);
+        return view('dashboard.directory', compact('directory'));
+    }
+
+    public function deletedirectory($id){
+        $directory = Directory::findOrFail($id);
+        try{
+            $directory->delete();
+            return redirect()->route('directory')->with('success', 'Directory Deleted');
+        }catch(Exception $e){
+            return redirect()->route('directory')->with('error', 'Please try again... '.$e);
+        }
+    }
+
+    public function editdirectory($id){
+        $directory = Directory::findOrFail($id);
+        return view('dashboard.edit.directory', compact('directory'));
+    }
+
+    public function updatedirectory(Request $request, $id){
+        $data = $request->validate([
+            'name' => ['required']
+        ]);
+
+        try{
+            $directory = Directory::where('id', $id)->update([
+                'name' => $data['name'],
+            ]);
+            return redirect()->route('directory')->with('success', 'Directory Updated');
+        }catch(Exception $e){
+            return back()->with('error', 'Please try again... '.$e);
+        }
+    }
+    //End of Directory Module
 
     //Document Module
     public function addDoc(Request $request){

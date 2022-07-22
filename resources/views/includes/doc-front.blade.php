@@ -37,6 +37,18 @@
                             {{$message}}
                         @enderror
                     </div>
+                    <div>
+                        <label for="category" class="text-lg font-medium">Category</label><br>
+                        <select name="category" value="{{old('category')}}" class="input-field">
+                            <option value="">Select Document Category</option>
+                            @foreach($directory as $folder)
+                                <option value="{{ $folder->id }}">{{ $folder->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category')
+                            {{$message}}
+                        @enderror
+                    </div>
                     <div class="text-center">
                         <button class="submit-button">Add Document</button>
                     </div>

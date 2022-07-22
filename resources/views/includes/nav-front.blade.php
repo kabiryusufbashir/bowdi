@@ -74,9 +74,11 @@
         <div id="newDirectory" class="nav-front-menu flex justify-between px-6">
             <div>Create Directory</div>
         </div>
-        <div id="allDirectories" class="nav-front-menu flex justify-between px-6">
-            <div>All Directories</div>
-        </div>
+        <a href="{{ route('directory') }}">
+            <div id="allDirectories" class="nav-front-menu flex justify-between px-6">
+                <div>All Directories</div>
+            </div>
+        </a>
         <div id="newDoc" class="nav-front-menu flex justify-between px-6">
             <div>Upload Document</div>
         </div>
