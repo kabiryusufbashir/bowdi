@@ -10,8 +10,8 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function home(){
-        return view('welcome');
+    public function portal(){
+        return view('dashboard.front');
     }
 
     public function login(Request $request){
@@ -46,6 +46,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {   
         Auth::guard('web')->logout();
-        return redirect()->route('home');
+        return redirect()->route('front');
     }
 }

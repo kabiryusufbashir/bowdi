@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Middleware\GlobalData;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
@@ -17,7 +18,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', [LoginController::class, 'home'])->name('home');
+Route::get('/', [FrontController::class, 'index'])->name('front');
+
+Route::get('/portal', [LoginController::class, 'portal'])->name('portal');
 
 //Login
 Route::post('/login', [LoginController::class, 'login'])->name('login');
