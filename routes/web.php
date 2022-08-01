@@ -19,6 +19,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [FrontController::class, 'index'])->name('front');
+Route::get('/where-we-work', [FrontController::class, 'whereWeWork'])->name('where-we-work');
 
 Route::get('/portal', [LoginController::class, 'portal'])->name('portal');
 

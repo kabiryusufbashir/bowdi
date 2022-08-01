@@ -5,8 +5,8 @@
 @endsection
 
 @section('page-meta')
-    <meta name="description" content="Team Piccolo Global Enterprises comprises of trained and certified experts in Information Technology, Engineering and Academic work, a number of whom have had experience of working on international: project design, management, implementation roles, and given academic talks.">
-    <meta name="keywords" content="Entrepreneur,Information Technology, Kano, Training">
+    <meta name="description" content="To promote social justice for girls/women, to produce a poverty free environment by providing access to education for Girls and empowering Women, to mitigate and prevent Sexual and Gender Based Violence">
+    <meta name="keywords" content="Maiduguri, Help, BOWDI, NGO, Entrepreneur, Information Technology, Kano, Training">
 @endsection
 
 @section('body-content')

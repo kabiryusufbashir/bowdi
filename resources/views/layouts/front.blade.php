@@ -17,15 +17,15 @@
             <div id="menu" class="md:hidden cursor-pointer ml-auto">
                 <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </div>
-            <a href="#">
+            <a href="{{ route('front') }}">
                 <div class="md:col-span-1">
                     <img class="w-8 md:w-16 ml-auto md:ml-0" src="{{ asset('images/bowdi.png') }}" alt="BOWDI logo">
                 </div>
             </a>
             <div class="md:col-span-4 hidden md:block">
                 <nav class="md:flex justify-between list-none">
-                    <li class="py-1 hover:text-green-600"><a href="#">Home</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">Where We Work</a></li>
+                    <li class="py-1 hover:text-green-600"><a href="{{ route('front') }}">Home</a></li>
+                    <li class="py-1 hover:text-green-600"><a href="{{ route('where-we-work') }}">Where We Work</a></li>
                     <li class="py-1 hover:text-green-600"><a href="#">Who We Are</a></li>
                     <li class="py-1 hover:text-green-600"><a href="#">What We Do</a></li>
                     <li class="py-1 hover:text-green-600"><a href="#">How To Help</a></li>
@@ -232,7 +232,7 @@
                     </div>
                 </div>
             </div>
-            <div class="py-7 text-center text-sm">
+            <div class="py-7 text-center sm:text-sm">
                 <footer>
                     Copyright © 2022 BOWDI. All Rights Reserved <br>
                     Designed & Developed by <a class="hover:text-blue-600" href="https://teampiccolo.com">Team Piccolo</a>
