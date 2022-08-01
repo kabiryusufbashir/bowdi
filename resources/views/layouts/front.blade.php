@@ -23,14 +23,13 @@
                 </div>
             </a>
             <div class="md:col-span-4 hidden md:block">
-                <nav class="md:flex justify-between list-none">
+                <nav class="md:flex justify-between list-none uppercase font-medium">
                     <li class="py-1 hover:text-green-600"><a href="{{ route('front') }}">Home</a></li>
                     <li class="py-1 hover:text-green-600"><a href="{{ route('where-we-work') }}">Where We Work</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">Who We Are</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">What We Do</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">How To Help</a></li>
+                    <li class="py-1 hover:text-green-600"><a href="{{ route('who-we-are') }}">Who We Are</a></li>
+                    <li class="py-1 hover:text-green-600"><a href="{{ route('what-we-do') }}">What We Do</a></li>
                     <li class="py-1 hover:text-green-600"><a href="#">Blog</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">Contact Us</a></li>
+                    <li class="py-1 hover:text-green-600"><a href="{{ route('contact-us') }}">Contact Us</a></li>
                 </nav>
             </div>
         </div>
@@ -38,7 +37,7 @@
         <div id="nav" class="w-full fixed h-screen z-30 hidden bg-white py-8">
             <div class="list-none p-2 text-xl border-t bg-white pt-20">
                 <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="{{ route('front') }}" class="flex justify-between items-center">
                         <span>Home</span>
                         &nbsp;&nbsp;
                         <span><i class="fas fa-home text-3xl"></i></span>
@@ -46,7 +45,7 @@
                 </li>
                 <hr>
                 <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="{{ route('where-we-work') }}" class="flex justify-between items-center">
                         <span>Where We Work</span>
                         &nbsp;&nbsp;
                         <span><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg></span>
@@ -54,7 +53,7 @@
                 </li>
                 <hr>
                 <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="{{ route('who-we-are') }}" class="flex justify-between items-center">
                         <span>Who We Are</span>
                         &nbsp;&nbsp;
                         <span><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path></svg></span>
@@ -62,18 +61,10 @@
                 </li>
                 <hr>
                 <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between border-b-1 items-center">
+                    <a href="{{ route('what-we-do') }}" class="flex justify-between border-b-1 items-center">
                         <span>What We Do</span>
                         &nbsp;&nbsp;
                         <span><i class="fas fa-dot-circle text-3xl"></i></span>
-                    </a>
-                </li>
-                <hr>
-                <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
-                        <span>How To Help</span>
-                        &nbsp;&nbsp;
-                        <span><i class="fas fa-donate text-3xl"></i></span>
                     </a>
                 </li>
                 <hr>
@@ -86,7 +77,15 @@
                 </li>
                 <hr>
                 <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
+                    <a href="{{ route('portal') }}" class="flex justify-between items-center">
+                        <span>LogIn</span>
+                        &nbsp;&nbsp;
+                        <span><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg></span>
+                    </a>
+                </li>
+                <hr>
+                <li class="py-3 px-8">
+                    <a href="{{ route('contact-us') }}" class="flex justify-between items-center">
                         <span>Contact Us</span>
                         &nbsp;&nbsp;
                         <span><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg></span>
@@ -194,22 +193,22 @@
                         <h1 class="text-3xl font-bold mb-4">Navigation</h1>
                         <nav class="list-none text-white">
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="{{ route('front') }}">
                                     <span>Home</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="{{ route('where-we-work') }}">
                                     <span>Where We Work</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="{{ route('who-we-are') }}">
                                     <span>Who We Are</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="{{ route('what-we-do') }}">
                                     <span>What We Do</span>
                                 </a>
                             </li>
@@ -219,12 +218,12 @@
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
-                                    <span>Log In</span>
+                                <a class="flex items-center py-1" href="{{ route('portal') }}">
+                                    <span>LogIn</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="{{ route('contact-us') }}">
                                     <span>Contact Us</span>
                                 </a>
                             </li>
@@ -234,8 +233,8 @@
             </div>
             <div class="py-7 text-center sm:text-sm">
                 <footer>
-                    Copyright © 2022 BOWDI. All Rights Reserved <br>
-                    Designed & Developed by <a class="hover:text-blue-600" href="https://teampiccolo.com">Team Piccolo</a>
+                    Designed & Developed by <a class="hover:text-green-600" href="https://teampiccolo.com">Team Piccolo</a><br>
+                    Copyright © 2020-@php echo date('Y') @endphp BOWDI. All Rights Reserved 
                 </footer>
             </div>
         </div>

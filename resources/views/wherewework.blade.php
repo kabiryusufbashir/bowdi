@@ -5,14 +5,14 @@
 @endsection
 
 @section('page-meta')
-    <meta name="description" content="To promote social justice for girls/women, to produce a poverty free environment by providing access to education for Girls and empowering Women, to mitigate and prevent Sexual and Gender Based Violence">
-    <meta name="keywords" content="Maiduguri, Help, BOWDI, NGO, Entrepreneur, Information Technology, Kano, Training">
+    <meta name="description" content="Women are the bedrock of every society, Communities can only be healthy and strong if we are able to breed a strong, powerful, confident, courageous and focused women. This is an organization created to build up a strong women societies by supporting girls and women especially those affected by insurgency here in Nigeria, specifically Borno State">
+    <meta name="keywords" content="Maiduguri, Help, BOWDI, NGO, Entrepreneur, Information Technology, Kano, Training, Women">
 @endsection
 
 @section('body-content')
     <!-- About Us  -->
-    <div class="py-16 bg-white">
-        <div class="lg:grid grid-cols-3 gap-8 mt-10 md:px-24 px-8">
+    <div class="bg-white">
+        <div class="lg:grid grid-cols-3 gap-8 mt-10 md:px-24 px-8 pb-10">
             <div class="text-justify col-span-2 border-r pr-4 border-green-400">
                 <div>
                     <h1 class="text-xl font-bold mb-4">About Us</h1>

@@ -11,7 +11,7 @@
 
 @section('body-content')
     <!-- Slider Images  -->
-    <div class="lg:grid grid-cols-2 gap-4 my-10 md:px-24 px-8">
+    <div class="lg:grid grid-cols-2 gap-4 my-10 lg:px-24 px-8">
         <div class="my-auto">
             <img src="{{ asset('images/bg-2.jpg') }}" alt="Peer to Peer">
         </div>
@@ -35,16 +35,16 @@
 
     <!-- Our Mission  -->
     <div class="mt-10 py-16 bg-gray-50">
-        <div class="text-center mx-auto md:px-24 px-8">
+        <div class="text-center mx-auto lg:px-24 px-8">
             <h1 class="text-3xl font-bold mb-4">Our Mission</h1>
             <p class="lg:w-1/3 w-full mx-auto">
                 "To promote social justice for girls/women, to produce a poverty free environment by providing access to education for Girls and empowering Women, to mitigate and prevent Sexual and Gender Based Violence"
             </p>
         </div>
         <div class="lg:grid grid-cols-3 gap-4 mt-10">
-            <div class="text-center md:px-24 px-8">
+            <div class="text-center lg:px-24 px-8">
                 <div class="mb-2">
-                    <i class="fa-solid fa-utensils text-6xl"></i>
+                    <i class="fa-solid fa-utensils text-6xl text-green-600"></i>
                 </div>
                 <div>
                     <h1 class="text-xl font-bold mb-4">Food Security and Nutrition</h1>
@@ -55,9 +55,9 @@
                     </p>
                 </div>
             </div>
-            <div class="text-center md:px-24 px-8">
+            <div class="text-center lg:px-24 px-8">
                 <div class="mb-2">
-                    <i class="fa-solid fa-key text-6xl"></i>
+                    <i class="fa-solid fa-key text-6xl text-green-600"></i>
                 </div>
                 <div>
                     <h1 class="text-xl font-bold mb-4">Protection</h1>
@@ -68,9 +68,9 @@
                     </p>
                 </div>
             </div>
-            <div class="text-center md:px-24 px-8">
+            <div class="text-center lg:px-24 px-8">
                 <div class="mb-2">
-                    <i class="fa-solid fa-heart text-6xl"></i>
+                    <i class="fa-solid fa-heart text-6xl text-green-600"></i>
                 </div>
                 <div>
                     <h1 class="text-xl font-bold mb-4">Women Peace and Security</h1>
