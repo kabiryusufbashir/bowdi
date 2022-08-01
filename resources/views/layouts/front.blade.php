@@ -95,17 +95,32 @@
             </div>
         </div>
         <!-- End of Navigation Bar  -->
-        @yield('body-content')
+        
+        <!-- Body Content  -->
+        <div class="relative top-24 py-6">
+            @yield('body-content')
+        </div>
+        <!-- End of Body Content  -->
+
         <!-- Footer  -->
         <div class="relative top-24">
-            <div id="footer" class=" bg-green-600 py-12 px-4 md:px-24 md:grid grid-cols-3 gap-8 text-white">
-                <div>
-                    <h1 class="text-3xl font-bold mb-4">Vision</h1>
-                    <p class="py-1 text-center w-2/3">
-                        BOWDI's vision is to nurture developed and resilient communities of resourceful, independent, educated women, girls and boys with good vision and services. Reduce poverty and Sexual/Gender Based Violence
-                    </p>
+            <div id="footer" class=" bg-green-600 py-12 px-4 lg:px-24 lg:grid grid-cols-5 gap-8 text-white">
+                <div class="col-span-2">
+                    <div>
+                        <h1 class="text-3xl font-bold mb-4">Vision</h1>
+                        <p class="py-1 text-left w-2/3">
+                            BOWDI's vision is to nurture developed and resilient communities of resourceful, independent, educated women, girls and boys with good vision and services. Reduce poverty and Sexual/Gender Based Violence
+                        </p>
+                    </div>
+                    <div class="mt-4">
+                        <h1 class="text-2xl font-bold pb-4">Borno Women Development Initiative (BOWDI)</h1>
+                        <img class="w-28 mx-auto md:mx-0" src="{{ asset('images/bowdi.png') }}" alt="BOWDI Logo">
+                        <p class="py-1 text-left lg:w-2/3 w-full">
+                            Plot 130 Tampul Road, Molai Road GRA Extension Maiduguri, Borno State Nigeria
+                        </p>
+                    </div>
                 </div>
-                <div>
+                <div class="col-span-2">
                     <h1 class="text-3xl font-bold mb-4">Our Partners</h1>
                     <nav class="list-none text-white">
                         <li class="py-1 hover:text-gray-800">
@@ -145,40 +160,75 @@
                         </li>
                     </nav>
                 </div>
-                <div>    
-                    <h1 class="text-3xl font-bold mb-4">Follow Us</h1>
-                    <nav class="list-none text-white">
-                        <li class="py-1 hover:text-gray-800">
-                            <a class="flex items-center py-1" href="#">
-                                <span><i class="fa-brands fa-twitter text-xl"></i></span> &nbsp;&nbsp;
-                                <span>Twitter</span>
-                            </a>
-                        </li>
-                        <li class="py-1 hover:text-gray-800">
-                            <a class="flex items-center py-1" href="#">
-                                <span><i class="fa-brands fa-facebook text-xl"></i></span> &nbsp;&nbsp;
-                                <span>Facebook</span>
-                            </a>
-                        </li>
-                        <li class="py-1 hover:text-gray-800">
-                            <a class="flex items-center py-1" href="#">
-                                <span><i class="fa-brands fa-linkedin text-xl"></i></span> &nbsp;&nbsp;
-                                <span>LinkedIn</span>
-                            </a>
-                        </li>
-                        <li class="py-1 hover:text-gray-800">
-                            <a class="flex items-center py-1" href="#">
-                                <span><i class="fa-brands fa-instagram text-xl"></i></span> &nbsp;&nbsp;
-                                <span>Instagram</span>
-                            </a>
-                        </li>
-                    </nav>
-                    <div class="mt-4">
-                        <h1 class="text-2xl font-bold pb-4">Borno Women Development Initiative (BOWDI)</h1>
-                        <img class="w-28 mx-auto md:mx-0" src="{{ asset('images/bowdi.png') }}" alt="BOWDI Logo">
-                        <p class="py-1 text-text lg:w-2/3 w-full">
-                            Plot 130 Tampul Road, Molai Road GRA Extension Maiduguri, Borno State Nigeria
-                        </p>
+                <div class="col-span-1">    
+                    <div>
+                        <h1 class="text-3xl font-bold mb-4">Follow Us</h1>
+                        <nav class="list-none text-white">
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span><i class="fa-brands fa-twitter text-xl"></i></span> &nbsp;&nbsp;
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span><i class="fa-brands fa-facebook text-xl"></i></span> &nbsp;&nbsp;
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span><i class="fa-brands fa-linkedin text-xl"></i></span> &nbsp;&nbsp;
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span><i class="fa-brands fa-instagram text-xl"></i></span> &nbsp;&nbsp;
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="mt-5">
+                        <h1 class="text-3xl font-bold mb-4">Navigation</h1>
+                        <nav class="list-none text-white">
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Where We Work</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Who We Are</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>What We Do</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Log In</span>
+                                </a>
+                            </li>
+                            <li class="py-1 hover:text-gray-800">
+                                <a class="flex items-center py-1" href="#">
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                        </nav>
                     </div>
                 </div>
             </div>
