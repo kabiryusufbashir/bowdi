@@ -792,7 +792,7 @@ class DashboardController extends Controller
         $data = request()->validate([
             'title'=> 'required',
             'author'=> 'required',
-            'photo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'content'=> 'required',
             'status'=> 'required',
         ]);
@@ -841,7 +841,7 @@ class DashboardController extends Controller
                 'title'=> 'required',
                 'content'=> 'required',
                 'status'=> 'required',
-                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
             ]);
             
             try{

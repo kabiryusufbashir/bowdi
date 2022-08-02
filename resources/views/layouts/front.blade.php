@@ -164,19 +164,19 @@
                         <h1 class="text-3xl font-bold mb-4">Follow Us</h1>
                         <nav class="list-none text-white">
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="https://twitter.com/bornowomendevt">
                                     <span><i class="fa-brands fa-twitter text-xl"></i></span> &nbsp;&nbsp;
                                     <span>Twitter</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="https://web.facebook.com/bornowomen/">
                                     <span><i class="fa-brands fa-facebook text-xl"></i></span> &nbsp;&nbsp;
                                     <span>Facebook</span>
                                 </a>
                             </li>
                             <li class="py-1 hover:text-gray-800">
-                                <a class="flex items-center py-1" href="#">
+                                <a class="flex items-center py-1" href="https://www.linkedin.com/company/bowdi/">
                                     <span><i class="fa-brands fa-linkedin text-xl"></i></span> &nbsp;&nbsp;
                                     <span>LinkedIn</span>
                                 </a>
