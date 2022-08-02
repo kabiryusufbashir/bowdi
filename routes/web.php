@@ -23,6 +23,7 @@ Route::get('/where-we-work', [FrontController::class, 'whereWeWork'])->name('whe
 Route::get('/who-we-are', [FrontController::class, 'whoWeAre'])->name('who-we-are');
 Route::get('/what-we-do', [FrontController::class, 'whatWeDo'])->name('what-we-do');
 Route::get('/contact-us', [FrontController::class, 'contactUs'])->name('contact-us');
+Route::get('/blogs/{blog}', [FrontController::class, 'readBlog'])->name('blog.read');
 
 Route::get('/portal', [LoginController::class, 'portal'])->name('portal');
 

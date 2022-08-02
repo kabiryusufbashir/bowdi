@@ -7,6 +7,15 @@
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico')}}"/>
+        <!-- CSS -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Share JS -->
+        <script src="{{ asset('js/share.js') }}"></script>
         <title>@yield('title')</title>
         @yield('page-meta')
     </head>
@@ -28,7 +37,6 @@
                     <li class="py-1 hover:text-green-600"><a href="{{ route('where-we-work') }}">Where We Work</a></li>
                     <li class="py-1 hover:text-green-600"><a href="{{ route('who-we-are') }}">Who We Are</a></li>
                     <li class="py-1 hover:text-green-600"><a href="{{ route('what-we-do') }}">What We Do</a></li>
-                    <li class="py-1 hover:text-green-600"><a href="#">Blog</a></li>
                     <li class="py-1 hover:text-green-600"><a href="{{ route('contact-us') }}">Contact Us</a></li>
                 </nav>
             </div>
@@ -65,14 +73,6 @@
                         <span>What We Do</span>
                         &nbsp;&nbsp;
                         <span><i class="fas fa-dot-circle text-3xl"></i></span>
-                    </a>
-                </li>
-                <hr>
-                <li class="py-3 px-8">
-                    <a href="#" class="flex justify-between items-center">
-                        <span>Blog</span>
-                        &nbsp;&nbsp;
-                        <span><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg></span>
                     </a>
                 </li>
                 <hr>

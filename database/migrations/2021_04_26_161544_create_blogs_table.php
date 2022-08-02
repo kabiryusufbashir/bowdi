@@ -20,6 +20,7 @@ class CreateBlogsTable extends Migration
             $table->text('content');
             $table->unsignedBigInteger('user_id');
             $table->string('status');
+            $table->integer('views');
             $table->timestamps();
 
             $table->index('user_id');
