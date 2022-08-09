@@ -684,7 +684,7 @@ class DashboardController extends Controller
 
     public function leave(){
         $user_id = Auth::user()->id;
-        if(Auth::user()->type == 1){
+        if(Auth::user()->type == 1 || Auth::user()->type == 2){
             $leave = Leave::orderby('created_at', 'desc')->paginate(50);
         }else{
             $leave = Leave::where('user_id', $user_id)->orderby('created_at', 'desc')->paginate(50);

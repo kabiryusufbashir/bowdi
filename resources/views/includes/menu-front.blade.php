@@ -38,7 +38,7 @@
                 </a>
             </div>
             <div class="stats-div w-full mx-4">
-                <a href="{{ route('doc') }}" class="flex items-center">
+                <a href="{{ route('blog') }}" class="flex items-center">
                     <span><i class="fas fa-blog"></i></span> &nbsp;&nbsp;
                     <span class="text-white">Blog Posts: {{ $blog->count() }}</span>
                 </a>

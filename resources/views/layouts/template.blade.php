@@ -9,5 +9,11 @@
 </div>
 <!-- Nav  -->
 <div id="nav" class="col-span-2 hidden md:block">
-    @include('includes.nav-front')
+    @if(Auth::user()->type == 1)
+        @include('includes.nav-front')
+    @elseif(Auth::user()->type == 2)
+        @include('includes.nav-hr')
+    @elseif(Auth::user()->type == 3)
+        @include('includes.nav-normal')
+    @endif
 </div>

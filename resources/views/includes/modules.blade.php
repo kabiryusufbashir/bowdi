@@ -16,3 +16,14 @@
 @include('includes.leave-front')
 <!-- Profile -->
 @include('includes.profile-front')
+
+<!-- Script  -->
+@if(Auth::user()->type == 1)
+    <script src="{{ asset('js/main.js') }}"></script>
+@elseif(Auth::user()->type == 2)
+    <script src="{{ asset('js/hr.js') }}"></script>
+@elseif(Auth::user()->type == 3)
+    <script src="{{ asset('js/normal.js') }}"></script>
+@endif
+
+<script src="{{ mix('/js/app.js') }}"></script>

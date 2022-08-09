@@ -17,8 +17,5 @@
     </div>
     <!-- Modules  -->
     @include('includes.modules')
-
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ mix('/js/app.js') }}"></script>  
 </body>
 </html>

@@ -23,7 +23,6 @@
     @include('includes.modules')
 
     {!! $chart->script() !!}
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ mix('/js/app.js') }}"></script>
+
 </body>
 </html>
