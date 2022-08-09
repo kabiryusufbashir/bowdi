@@ -276,6 +276,14 @@ class DashboardController extends Controller
         }
 
         try{
+
+            $user_id = Staff::where('id', $id)->pluck('user_id')->first();
+            $department_id = $request->department_id;
+            
+            if($department_id == 4){
+                $user = User::where('id', $user_id)->update(['type' => 2]);
+            }
+
             $staff = Staff::where('id', $id)->update([
                 'rank_id' => $request->rank_id,
                 'department_id' => $request->department_id,

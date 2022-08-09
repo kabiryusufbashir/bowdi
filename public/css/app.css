@@ -1340,6 +1340,11 @@ video {
     margin-right: 0px;
   }
 
+  .lg\:mx-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
   .lg\:ml-auto {
     margin-left: auto;
   }
@@ -1391,6 +1396,11 @@ video {
   .lg\:border-green-400 {
     --tw-border-opacity: 1;
     border-color: rgb(74 222 128 / var(--tw-border-opacity));
+  }
+
+  .lg\:bg-green-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(21 128 61 / var(--tw-bg-opacity));
   }
 
   .lg\:px-24 {

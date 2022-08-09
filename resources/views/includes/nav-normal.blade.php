@@ -11,7 +11,7 @@
         <div>Leave Request</div>
         <div><i class="text-black md:text-white fas fa-users"></i></div>
     </div>
-    <div id="staffBody" class="hidden bg-green-700">
+    <div id="staffBody" class="hidden lg:bg-green-700">
         <div id="newLeaveRequest" class="nav-front-menu flex justify-between px-6">
             <div>Leave Request</div>
         </div>
@@ -28,7 +28,7 @@
         <div>Report</div>
         <div><i class="text-black md:text-white fas fa-folder"></i></div>
     </div>
-    <div id="reportBody" class="hidden bg-green-700">
+    <div id="reportBody" class="hidden lg:bg-green-700">
         <div id="newReport" class="nav-front-menu flex justify-between px-6">
             <div>New Report</div>
         </div>

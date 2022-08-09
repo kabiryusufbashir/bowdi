@@ -1,4 +1,4 @@
-<div id="doc" class="hidden">
+<div id="doc" class="hidden w-full">
     <div id="doc-content">
         <div id="doc-header" class="bg-green-800 text-white p-4 flex justify-between">
             <span>New Document</span>

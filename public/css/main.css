@@ -94,3 +94,12 @@ table, th, td{
     padding: 0.5% 1%;
     border-collapse: collapse;
 }
+
+@media only screen and (max-width:768px)
+{
+    #dept-content, #rank-content, #staff-content, #profile-content, #doc-content, #blog-content, #report-content, #leave-content, #directory-content{
+        margin: 4% auto;
+        width: 90%;
+        background: #FFFFFF;
+    }
+}
