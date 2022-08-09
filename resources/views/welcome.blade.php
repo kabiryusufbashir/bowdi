@@ -90,15 +90,15 @@
         <div class="text-center mx-auto">
             <h1 class="text-3xl font-bold mb-4">Featured Stories</h1>
         </div>
-        @foreach($blogs as $blog)
-            <div class="lg:grid grid-cols-3 gap-4">
+        <div class="lg:grid grid-cols-3 gap-4">
+            @foreach($blogs as $blog)
                 <a href="{{ route('blog.read', $blog->title) }}">
                     <div class="p-10 m-4 border">
                         <img class="h-42 my-4 mx-auto border" src="{{ $blog->photo }}" alt="{{ $blog->title }}">
                         <div>
                             {{ date('M d, Y', strtotime($blog->created_at)) }}
                         </div>
-                        <h3 class="text-3xl font-medium">{{ $blog->title }}</h3>
+                        <h3 class="text-3xl font-medium">{{ Str::limit($blog->title, 30, '...') }}</h3>
                         <p class="paragraph">
                             {!! html_entity_decode(Str::limit($blog->content, 150, '...')) !!}<br>
                             <div class="text-2xl font-medium">
@@ -115,8 +115,11 @@
                         </p>
                     </div>
                 </a>   
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+        <div class="flex justify-center mt-4">
+            <a href="{{ route('blog.front') }}" class="bg-green-600 py-4 px-6 rounded-full text-white">Read More Stories</a>
+        </div>
     </div>
     @endif
 @endsection

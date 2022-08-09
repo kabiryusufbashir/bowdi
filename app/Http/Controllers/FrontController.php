@@ -8,8 +8,13 @@ use App\Models\Blog;
 class FrontController extends Controller
 {
     public function index(){
-        $blogs = Blog::where('status', 'publish')->orderby('id', 'desc')->paginate(9);
+        $blogs = Blog::where('status', 'publish')->orderby('id', 'desc')->paginate(3);
         return view('welcome', compact('blogs'));
+    }
+
+    public function blogFront(){
+        $blogs = Blog::where('status', 'publish')->orderby('id', 'desc')->paginate(9);
+        return view('blog', compact('blogs'));
     }
 
     public function readBlog($blog){
