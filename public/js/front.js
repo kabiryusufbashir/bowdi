@@ -1,10 +1,11 @@
 let menu = document.querySelector('#menu');
-let nav = document.querySelector('#nav');
+let navDesktop = document.querySelector('#navDesktop');
+let navMobile = document.querySelector('#navMobile');
 
 menu.addEventListener('click', ()=>{
-    if(nav.classList.contains('hidden')){
-        nav.classList.remove('hidden');
+    if(navMobile.classList.contains('hidden')){
+        navMobile.classList.remove('hidden');
     }else{
-        nav.classList.add('hidden');
+        navMobile.classList.add('hidden');
     }
 });

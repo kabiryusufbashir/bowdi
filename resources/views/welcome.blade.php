@@ -86,7 +86,7 @@
 
     <!-- Featured stories -->
     @if($blogs->count())
-    <div class="mt-10 py-16 lg:px-24 px-8">
+    <div class="mt-10 py-16 lg:px-24 px-4">
         <div class="text-center mx-auto">
             <h1 class="text-3xl font-bold mb-4">Featured Stories</h1>
         </div>

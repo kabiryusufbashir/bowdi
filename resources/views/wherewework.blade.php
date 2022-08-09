@@ -13,7 +13,7 @@
     <!-- About Us  -->
     <div class="bg-white">
         <div class="lg:grid grid-cols-3 gap-8 mt-10 md:px-24 px-8 pb-10">
-            <div class="text-justify col-span-2 border-r pr-4 border-green-400">
+            <div class="text-justify col-span-2 lg:border-r pr-4 lg:border-green-400">
                 <div>
                     <h1 class="text-xl font-bold mb-4">About Us</h1>
                 </div>

@@ -10,7 +10,7 @@
 @endsection
 
 @section('body-content')
-    <div class="px-8 py-24 w-1/2 mx-auto">
+    <div class="px-8 py-24 lg:w-1/2 w-full mx-auto">
         <div class="text-3xl mb-8">
             <span class="font-bold border-green-600">{{ $blog->title }}</span>
         </div>
@@ -25,7 +25,7 @@
             {!! $sharepost !!}
             </div>
         </div>
-        <div class="lg:px-4">
+        <div class="lg:px-4 text-justify">
             {!!  html_entity_decode($blog->content) !!}
         </div>
         <div class="my-6">
