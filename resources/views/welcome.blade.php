@@ -92,7 +92,7 @@
         </div>
         <div class="lg:grid grid-cols-3 gap-4">
             @foreach($blogs as $blog)
-                <a href="{{ route('blog.read', $blog->title) }}">
+                <a href="{{ route('blog.read', $blog->id) }}">
                     <div class="p-10 m-4 border">
                         <img class="h-42 my-4 mx-auto border" src="{{ $blog->photo }}" alt="{{ $blog->title }}">
                         <div>

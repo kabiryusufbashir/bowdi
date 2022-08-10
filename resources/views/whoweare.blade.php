@@ -18,7 +18,7 @@
                     <h1 class="text-3xl font-bold mb-4 text-center">Founder's Note</h1>
                 </div>
                 <div>
-                    <img class="w-1/5 mx-auto rounded-full" src="{{ asset('images/bowdi.png') }}" alt="Founders Photo">
+                    <img class="w-1/2 mx-auto rounded-full mb-5" src="{{ asset('images/founder.jpg') }}" alt="Founders Photo">
                 </div>
                 <div>
                     <p class="mb-5">

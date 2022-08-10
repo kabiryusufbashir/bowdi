@@ -18,12 +18,12 @@ class FrontController extends Controller
     }
 
     public function readBlog($blog){
-        $post = Blog::where('title', $blog)->first();
+        $post = Blog::where('id', $blog)->first();
         $views = $post->views + 1;
-        $updateView = Blog::where('title', $blog)->update(['views'=> $views]);
+        $updateView = Blog::where('id', $blog)->update(['views'=> $views]);
         
-        $blog = Blog::where('title', $blog)->first();
-        $sharepost = \Share::page('https://bowdi.org/blogs/'.$blog->title)->facebook()->twitter()->linkedin()->telegram()->whatsapp();
+        $blog = Blog::where('id', $blog)->first();
+        $sharepost = \Share::page('https://bowdi.org/blogs/'.$blog->id)->facebook()->twitter()->linkedin()->telegram()->whatsapp();
         
         return view('readpost', compact('blog'))->with('sharepost', $sharepost);
 
