@@ -119,16 +119,16 @@
             <div id="footer" class=" bg-green-600 py-12 px-8 lg:px-24 lg:grid grid-cols-5 gap-8 text-white">
                 <div class="col-span-2">
                     <div>
-                        <h1 class="text-3xl font-bold mb-4">Vision</h1>
+                        <!-- <img class="w-28 mx-auto lg:mx-0" src="{{ asset('images/bowdi.png') }}" alt="BOWDI Logo"> -->
+                        <h1 class="text-3xl font-bold mb-4">Office Address</h1>
                         <p class="py-1 text-left lg:w-2/3 w-full">
-                            BOWDI's vision is to nurture developed and resilient communities of resourceful, independent, educated women, girls and boys with good vision and services. Reduce poverty and Sexual/Gender Based Violence
+                            Plot 130 Tampul Road, Molai Road GRA Extension Maiduguri, Borno State Nigeria
                         </p>
                     </div>
                     <div class="mt-4">
-                        <h1 class="text-2xl font-bold pb-4">Borno Women Development Initiative (BOWDI)</h1>
-                        <img class="w-28 mx-auto lg:mx-0" src="{{ asset('images/bowdi.png') }}" alt="BOWDI Logo">
-                        <p class="py-1 text-left lg:w-2/3 w-full">
-                            Plot 130 Tampul Road, Molai Road GRA Extension Maiduguri, Borno State Nigeria
+                        <h1 class="text-3xl font-bold mb-4">Vision</h1>
+                        <p class="py-1 lg:w-2/3 w-full text-justify">
+                            BOWDI's vision is to nurture developed and resilient communities of resourceful, independent, educated women, girls and boys with good vision and services. Reduce poverty and Sexual/Gender Based Violence
                         </p>
                     </div>
                 </div>

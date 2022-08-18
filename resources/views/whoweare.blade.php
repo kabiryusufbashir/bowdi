@@ -20,7 +20,7 @@
                 <div>
                     <img class="w-1/2 mx-auto rounded-full mb-5" src="{{ asset('images/founder.jpg') }}" alt="Founders Photo">
                 </div>
-                <div>
+                <div class="text-justify">
                     <p class="mb-5">
                         I created this organization on the perspective of building healthy society of strong and focused women, with the conscience of a developed and sustainable community for a better living, by providing long-term workable solutions to backwardness in our communities, also provide our girls/women with the opportunity to being independent. This can further reduce gender inequality and alleviating poverty within our territories
                     </p>

@@ -25,7 +25,7 @@
                         <div class="mb-4">
                             <h2 class="text-xl font-bold">Livelihood</h2>
                         </div>
-                        <div>
+                        <div class="text-justify">
                             <p>
                                 The purpose of Livelihood Assistance Program is to revive the spirit of self reliance and to alleviate poverty through increasing the income and asset creation among the most affected population through a process that best defines the need of the community called <b>Community Based Participatory Planning(CBPP)</b>
                             </p>
@@ -38,7 +38,7 @@
                         <div class="mb-4">
                             <h2 class="text-xl font-bold">Protection</h2>
                         </div>
-                        <div>
+                        <div class="text-justify">
                             <p class="mb-2">
                                 BOWDI in collaboration with UNHCR have implemented GBV Prevention Program in Pulka, Bama and Gwoza of Borno State. The project is to create awareness among the IDP settlement and sensitize them to speakout any form of GBV case and to come together with the Community Leaders, the Soldiers, the youths and all the members of the community to prevent the occurance of any form of abuse within the community and a peer to peer has been formed to . The community leaders and the soldiers were trained on GBV Prevention as they were to stepdown the training to people around them. BOWDI has also organized Dramas, Football Matches and Dancing competition within the communities. BOWDI also participated in the 16 days of Activism by launching a door to door campaign and security by the gate. This have vastly reduce the level of GBV cases in the communities which BOWDI recorded that as a success.
                             </p>
@@ -54,7 +54,7 @@
                         <div class="mb-4">
                             <h2 class="text-xl font-bold">Education</h2>
                         </div>
-                        <div>
+                        <div class="text-justify">
                             <p class="mb-2">
                                 Non Formal Learning Centers were specifically designed for children who have never attended school either due to financial constraints, absence of government schools, or issues of proximity. In Jakana, Auno and Njimtilo communities of Konduga L.G.A, Borno State 1300 children, in 26 classes 50 in each with 65% girls between the ages of 6 to 14 years that have never had access to education have been enrolled in 2016 and got mainstreamed into formal schools near by after 11 months.
                             </p>

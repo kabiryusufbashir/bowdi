@@ -31,9 +31,9 @@
         <div class="my-6">
             <div class="flex my-4 items-center justify-between">
                 <div class="flex items-center">
-                    <img class="w-10 h-10" src="{{ \App\Models\Staff::where(['id' => $blog->user_id])->first()->photo ?? asset('/images/bowdi.png') }}" alt="{{ \App\Models\Staff::where(['id' => $blog->user_id])->first()->name }}"> 
+                    <img class="w-10 h-10" src="{{ \App\Models\Staff::where(['id' => $blog->user_id])->pluck('photo')->first() != null ? \App\Models\Staff::where(['id' => $blog->user_id])->pluck('photo')->first() : asset('/images/bowdi.png') }}" alt="{{ \App\Models\Staff::where(['id' => $blog->user_id])->pluck('first_name')->first() }}"> 
                     &nbsp;&nbsp;
-                    <span>{{ \App\Models\Staff::where(['id' => $blog->user_id])->first()->name ?? 'Admin' }}</span>
+                    <span>{{ \App\Models\Staff::where(['id' => $blog->user_id])->pluck('first_name')->first() ?? 'Admin' }}</span>
                 </div>
             </div>
             <span>View: {{ $blog->views }}</span>
